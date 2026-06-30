@@ -3,1251 +3,664 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desai Investments | Premium Financial Consultation</title>
-    <meta name="description" content="Book your free financial consultation with Desai Investments. Your trusted partner for wealth creation, mutual funds, insurance, and goal-based planning.">
-    
-    <!-- Google Fonts (Poppins) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Desai Investments | Premium Financial Enquiry</title>
     
     <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/style.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <!-- Google Font: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
+    <!-- FontAwesome 6 for Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
+        /* CSS Variables for Brand Theme Consistency */
         :root {
-            --primary: #A61E63;
-            --primary-dark: #85144B;
-            --secondary: #C63D7C;
-            --bg-light: #FFF6FA;
-            --text-dark: #1F1F1F;
+            --primary-color: #A61E63;
+            --secondary-color: #D63384;
+            --bg-color: #FFFFFF;
+            --text-main: #2D2D2D;
             --text-muted: #5F6368;
-            --glass-bg: rgba(255, 255, 255, 0.85);
+            --glass-bg: rgba(255, 255, 255, 0.88);
             --glass-border: rgba(255, 255, 255, 0.6);
-            --card-shadow: 0 12px 40px rgba(166, 30, 99, 0.05);
-            --hover-shadow: 0 20px 48px rgba(166, 30, 99, 0.12);
-            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --shadow-subtle: 0 12px 40px rgba(166, 30, 99, 0.05);
+            --shadow-hover: 0 20px 48px rgba(166, 30, 99, 0.1);
         }
 
         body {
             font-family: 'Poppins', sans-serif;
-            color: var(--text-dark);
-            background-color: #FFFFFF;
+            background: linear-gradient(135deg, #FCF8FA 0%, #FFFFFF 100%);
+            color: var(--text-main);
             overflow-x: hidden;
-            scroll-behavior: smooth;
+            min-height: 100vh;
         }
 
-        /* Utility Styles */
-        .text-gradient {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        /* Responsive Banner Container */
+        .banner-wrapper {
+            position: relative;
+            width: 100%;
+            height: 240px;
+            overflow: hidden;
+            background-color: #1a1a1a;
         }
 
-        .bg-gradient-primary {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        .banner-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
-        .bg-light-custom {
-            background-color: var(--bg-light);
+        .banner-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(166, 30, 99, 0.9) 0%, rgba(214, 51, 132, 0.4) 100%);
         }
 
-        .section-padding {
-            padding: 80px 0;
+        .banner-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
         }
 
-        @media (max-width: 768px) {
-            .section-padding {
-                padding: 50px 0;
-            }
+        .logo-wrapper {
+            width: 55px;
+            height: 55px;
+            background: #FFFFFF;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
-        /* Glassmorphism */
+        .logo-text {
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 1.4rem;
+        }
+
+        .logo-title {
+            color: #FFFFFF;
+            font-weight: 700;
+            font-size: 1.8rem;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-subtitle {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.85rem;
+            font-weight: 400;
+        }
+
+        /* Headline Styling */
+        .headline {
+            color: var(--primary-color);
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .sub-headline {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            font-weight: 400;
+        }
+
+        /* Glassmorphism Card Design */
         .glass-card {
             background: var(--glass-bg);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border: 1px solid var(--glass-border);
-            box-shadow: var(--card-shadow);
-            border-radius: 20px;
-            transition: var(--transition);
+            border-radius: 24px;
+            box-shadow: var(--shadow-subtle);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        /* Header / Navbar */
-        .navbar {
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            background: rgba(255, 255, 255, 0.9);
-            border-bottom: 1px solid rgba(166, 30, 99, 0.08);
-            transition: var(--transition);
-            z-index: 1030;
+        .glass-card:hover {
+            box-shadow: var(--shadow-hover);
         }
 
-        .navbar-brand img {
-            height: 48px;
-            width: auto;
-        }
-
-        .brand-subtitle {
-            font-size: 11px;
-            color: var(--primary);
-            letter-spacing: 1px;
-            font-weight: 500;
-            display: block;
-            margin-top: -3px;
-        }
-
-        /* Hero Section */
-        .hero-section {
-            background: radial-gradient(circle at 90% 10%, rgba(255, 246, 250, 1) 0%, rgba(255, 255, 255, 1) 70%);
-            padding-top: 140px;
-            padding-bottom: 80px;
-        }
-
-        @media (max-width: 991px) {
-            .hero-section {
-                padding-top: 110px;
-                padding-bottom: 50px;
-            }
-        }
-
-        /* Premium Service Cards */
-        .service-card {
-            background: #FFFFFF;
-            border: 1px solid rgba(166, 30, 99, 0.06);
-            border-radius: 16px;
-            padding: 20px;
-            transition: var(--transition);
-            cursor: pointer;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--hover-shadow);
-            border-color: rgba(166, 30, 99, 0.2);
-            background: var(--bg-light);
-        }
-
-        .service-icon {
-            width: 48px;
-            height: 48px;
+        /* Premium Custom Inputs */
+        .form-floating > .form-control,
+        .form-floating > .form-select {
+            height: 55px;
             border-radius: 12px;
-            background: rgba(166, 30, 99, 0.08);
-            color: var(--primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.35rem;
-            transition: var(--transition);
-            flex-shrink: 0;
-        }
-
-        .service-card:hover .service-icon {
-            background: var(--primary);
-            color: #FFFFFF;
-        }
-
-        .service-title {
+            border: 1.5px solid #E2E8F0;
+            background-color: rgba(255, 255, 255, 0.8);
             font-size: 0.95rem;
-            font-weight: 600;
-            margin: 0;
-            color: var(--text-dark);
+            color: var(--text-main);
+            transition: all 0.25s ease;
         }
 
-        /* Trust Badges */
-        .badge-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
+        .form-floating > textarea.form-control {
+            height: 100px;
         }
 
-        @media (max-width: 576px) {
-            .badge-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .trust-badge-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 10px 14px;
-            background: rgba(166, 30, 99, 0.04);
-            border-radius: 10px;
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-
-        .trust-badge-item i {
-            color: var(--primary);
-            font-size: 1.1rem;
-        }
-
-        /* Enquiry Form */
-        .enquiry-form-card {
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            box-shadow: 0 20px 50px rgba(166, 30, 99, 0.08);
-            position: sticky;
-            top: 110px;
-        }
-
-        .form-floating > .form-control:focus ~ label,
-        .form-floating > .form-control:not(:placeholder-shown) ~ label,
-        .form-floating > .form-select ~ label {
-            color: var(--primary);
-            transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
-        }
-
-        .form-control, .form-select {
-            border: 1.5px solid rgba(0, 0, 0, 0.08);
-            border-radius: 12px;
-            padding: 12px 16px;
-            font-size: 0.95rem;
-            transition: var(--transition);
-            background-color: rgba(255, 255, 255, 0.9);
-        }
-
-        .form-control:focus, .form-select:focus {
-            border-color: var(--primary);
-            box-shadow: 0 0 0 4px rgba(166, 30, 99, 0.1);
+        .form-floating > .form-control:focus,
+        .form-floating > .form-select:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 4px rgba(166, 30, 99, 0.12);
             background-color: #FFFFFF;
         }
 
-        .btn-gradient {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: #FFFFFF;
-            border: none;
-            padding: 14px 28px;
-            font-weight: 600;
+        .form-floating > label {
+            padding-left: 15px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Services Grid Styling */
+        .service-item {
+            background: #FFFFFF;
+            border: 1.5px solid #F3EAF0;
             border-radius: 12px;
-            transition: var(--transition);
-            box-shadow: 0 8px 24px rgba(166, 30, 99, 0.25);
+            transition: all 0.25s ease;
+        }
+
+        .service-item:hover {
+            border-color: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(166, 30, 99, 0.05);
+        }
+
+        .service-icon-box {
+            width: 38px;
+            height: 38px;
+            background-color: rgba(166, 30, 99, 0.07);
+            color: var(--primary-color);
+            border-radius: 8px;
+            font-size: 0.95rem;
+            transition: all 0.25s ease;
+        }
+
+        .service-item:hover .service-icon-box {
+            background-color: var(--primary-color);
+            color: #FFFFFF;
+        }
+
+        .service-name {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #3D424A;
+        }
+
+        /* Highlighted Trust Box */
+        .trust-box {
+            background: linear-gradient(135deg, rgba(166, 30, 99, 0.05) 0%, rgba(214, 51, 132, 0.05) 100%);
+            border: 1px dashed rgba(166, 30, 99, 0.3);
+            border-radius: 16px;
+        }
+
+        .trust-item {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        /* Premium Interactive Submit Button */
+        .btn-gradient {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            border: none;
+            height: 55px;
+            border-radius: 12px;
+            color: #FFFFFF;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(166, 30, 99, 0.2);
         }
 
         .btn-gradient:hover {
-            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
-            color: #FFFFFF;
             transform: translateY(-2px);
-            box-shadow: 0 12px 28px rgba(166, 30, 99, 0.35);
-        }
-
-        /* Why Choose Us Section */
-        .feature-card {
-            background: #FFFFFF;
-            border: 1px solid rgba(166, 30, 99, 0.06);
-            border-radius: 20px;
-            padding: 30px;
-            transition: var(--transition);
-            height: 100%;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--hover-shadow);
-            border-color: rgba(166, 30, 99, 0.15);
-        }
-
-        .feature-icon-wrapper {
-            width: 60px;
-            height: 60px;
-            border-radius: 16px;
-            background: var(--bg-light);
-            color: var(--primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.6rem;
-            margin-bottom: 20px;
-            transition: var(--transition);
-        }
-
-        .feature-card:hover .feature-icon-wrapper {
-            background: var(--primary);
+            box-shadow: 0 8px 25px rgba(166, 30, 99, 0.35);
             color: #FFFFFF;
-            transform: rotate(-5deg) scale(1.05);
         }
 
-        /* Timeline Journey */
-        .timeline-container {
-            position: relative;
-            padding: 40px 0;
+        .btn-gradient:active {
+            transform: translateY(1px);
         }
 
-        @media (min-width: 992px) {
-            .timeline-container::before {
-                content: '';
-                position: absolute;
-                top: 50%;
-                left: 0;
-                right: 0;
-                height: 3px;
-                background: linear-gradient(to right, rgba(166, 30, 99, 0.05), var(--primary), rgba(166, 30, 99, 0.05));
-                transform: translateY(-50%);
-                z-index: 1;
-            }
+        .security-text {
+            font-size: 0.85rem;
+            color: var(--text-muted);
         }
 
-        .timeline-step {
-            position: relative;
-            z-index: 2;
+        /* Sticky Call & WhatsApp Buttons for Mobile View */
+        .mobile-action-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+            z-index: 1030;
+            padding: 12px 16px;
+            display: none;
+        }
+
+        .btn-mobile-whatsapp {
+            background-color: #25D366;
+            color: #FFFFFF;
+            font-weight: 600;
+            border: none;
+            border-radius: 10px;
+            height: 48px;
+            font-size: 0.95rem;
+        }
+
+        .btn-mobile-whatsapp:hover, .btn-mobile-whatsapp:focus {
+            background-color: #20BA5A;
+            color: #FFFFFF;
+        }
+
+        .btn-mobile-call {
+            background-color: var(--primary-color);
+            color: #FFFFFF;
+            font-weight: 600;
+            border: none;
+            border-radius: 10px;
+            height: 48px;
+            font-size: 0.95rem;
+        }
+
+        .btn-mobile-call:hover, .btn-mobile-call:focus {
+            background-color: #8C1752;
+            color: #FFFFFF;
+        }
+
+        /* Interactive Card Success Flip View */
+        .success-wrapper {
+            display: none;
             text-align: center;
+            padding: 40px 20px;
         }
 
-        .timeline-icon {
+        .success-icon-wrapper {
             width: 70px;
             height: 70px;
+            background-color: rgba(37, 211, 102, 0.1);
+            color: #25D366;
             border-radius: 50%;
-            background: #FFFFFF;
-            border: 3px solid var(--primary);
-            color: var(--primary);
-            display: flex;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            margin: 0 auto 15px;
-            box-shadow: 0 10px 25px rgba(166, 30, 99, 0.1);
-            transition: var(--transition);
+            font-size: 2rem;
+            margin-bottom: 20px;
         }
 
-        .timeline-step:hover .timeline-icon {
-            background: var(--primary);
-            color: #FFFFFF;
-            transform: scale(1.1);
+        /* Custom Scrollbar for Smooth UI Look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F8F9FA;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D5C2CD;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-color);
         }
 
-        .timeline-arrow {
-            display: none;
-            color: var(--primary);
-            font-size: 1.5rem;
+        /* Responsive Breakpoints & Mobile Optimization */
+        @media (max-width: 991.98px) {
+            .banner-wrapper {
+                height: 180px;
+            }
+            .logo-title {
+                font-size: 1.5rem;
+            }
         }
 
-        @media (max-width: 991px) {
-            .timeline-container {
+        @media (max-width: 767.98px) {
+            body {
+                padding-bottom: 75px; /* Offset to prevent content overlap with sticky footer */
+            }
+            .mobile-action-bar {
                 display: flex;
-                flex-direction: column;
-                gap: 30px;
             }
-            .timeline-arrow {
-                display: block;
-                margin: 10px 0;
+            .glass-card {
+                padding: 24px 16px !important;
+                border-radius: 16px;
             }
-        }
-
-        /* Testimonials */
-        .testimonial-card {
-            background: #FFFFFF;
-            border: 1px solid rgba(166, 30, 99, 0.06);
-            border-radius: 20px;
-            padding: 30px;
-            transition: var(--transition);
-            box-shadow: var(--card-shadow);
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--hover-shadow);
-        }
-
-        .star-rating i {
-            color: #FFC107;
-            font-size: 1rem;
-        }
-
-        /* Accordion Style */
-        .accordion-item {
-            border: 1px solid rgba(166, 30, 99, 0.08) !important;
-            border-radius: 12px !important;
-            margin-bottom: 12px;
-            overflow: hidden;
-            background: #FFFFFF;
-        }
-
-        .accordion-button {
-            padding: 20px;
-            font-weight: 600;
-            color: var(--text-dark);
-            background-color: #FFFFFF;
-            box-shadow: none !important;
-        }
-
-        .accordion-button:not(.collapsed) {
-            color: var(--primary);
-            background-color: var(--bg-light);
-        }
-
-        .accordion-button::after {
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23A61E63'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
-        }
-
-        /* Footer */
-        .footer {
-            background-color: #12020B;
-            color: #E2D9DD;
-            padding-top: 80px;
-            padding-bottom: 30px;
-        }
-
-        .footer-logo img {
-            height: 50px;
-        }
-
-        .footer-title {
-            color: #FFFFFF;
-            font-weight: 600;
-            font-size: 1.1rem;
-            margin-bottom: 25px;
-            position: relative;
-        }
-
-        .footer-link {
-            color: #E2D9DD;
-            text-decoration: none;
-            transition: var(--transition);
-            display: inline-block;
-            margin-bottom: 12px;
-        }
-
-        .footer-link:hover {
-            color: var(--secondary);
-            transform: translateX(4px);
-        }
-
-        .disclaimer-text {
-            font-size: 0.78rem;
-            color: #A3969C;
-            line-height: 1.6;
-        }
-
-        /* Floating Action Buttons */
-        .floating-action-container {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            z-index: 1040;
-        }
-
-        .btn-floating {
-            width: 54px;
-            height: 54px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #FFFFFF !important;
-            font-size: 1.5rem;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-            transition: var(--transition);
-            text-decoration: none;
-        }
-
-        .btn-floating:hover {
-            transform: scale(1.1) translateY(-3px);
-        }
-
-        .btn-float-call {
-            background-color: var(--primary);
-        }
-
-        .btn-float-whatsapp {
-            background-color: #25D366;
-        }
-
-        .btn-float-consult {
-            background-color: #007bff;
-        }
-
-        /* Scroll Animation Utility */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Form Submitting Spinner Overlay */
-        #loadingSpinner {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(18, 2, 11, 0.6);
-            backdrop-filter: blur(4px);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-            color: #FFFFFF;
         }
     </style>
 </head>
 <body>
 
-    <!-- Loading Spinner Overlay -->
-    <div id="loadingSpinner">
-        <div class="text-center">
-            <div class="spinner-border text-light mb-3" role="status" style="width: 3rem; height: 3rem;"></div>
-            <h5>Processing Request...</h5>
+    <!-- Responsive Corporate Banner -->
+    <div class="banner-wrapper">
+        <!-- If "banner.jpg" is present in your folder, it will load perfectly. 
+             If missing, we've provided a premium Unsplash architecture-fallback image background -->
+        <img src="banner.jpg" class="banner-img" alt="Desai Investments Banner" onerror="this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80';">
+        <div class="banner-overlay"></div>
+        <div class="banner-content d-flex align-items-center">
+            <div class="container px-4">
+                <div class="d-flex align-items-center gap-3">
+                    <div class="logo-wrapper d-flex align-items-center justify-content-center">
+                        <span class="logo-text">DI</span>
+                    </div>
+                    <div>
+                        <h1 class="logo-title mb-0">Desai Investments</h1>
+                        <p class="logo-subtitle mb-0">Secure Future • Personalized Wealth Growth</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- Sticky Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
-        <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="#">
-                <svg width="40" height="40" viewBox="0 0 100 100" class="me-2" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="50" cy="50" r="45" fill="none" stroke="#A61E63" stroke-width="8"/>
-                    <path d="M50,15 C69,15 85,31 85,50 C85,69 69,85 50,85 C31,85 20,65 35,45 C45,32 55,25 50,15 Z" fill="#A61E63"/>
-                    <circle cx="50" cy="50" r="10" fill="#FFFFFF"/>
-                </svg>
-                <div>
-                    <strong style="color: var(--primary); font-weight: 800; font-size: 1.3rem; letter-spacing: -0.5px; display: block; line-height: 1;">DESAI INVESTMENTS</strong>
-                    <span class="brand-subtitle">देसाई बोलता है</span>
+    <!-- Main Content Area -->
+    <div class="container my-4 my-lg-5">
+        <div class="row g-4 g-lg-5 align-items-start">
+            
+            <!-- Left Side: Copy & Services (Stacks below form on mobile if standard layout, but structured beautifully) -->
+            <div class="col-lg-6 order-2 order-lg-1">
+                <div class="pe-lg-3">
+                    <h2 class="headline display-6 mb-3">Book Your Free Financial Consultation</h2>
+                    <p class="sub-headline mb-4">Get expert financial guidance tailored specifically for your life-milestones and investment goals.</p>
+
+                    <!-- Premium Highlight Box -->
+                    <div class="trust-box p-3 mb-4 d-flex justify-content-around flex-wrap gap-2 text-center">
+                        <div class="trust-item d-flex align-items-center gap-2">
+                            <i class="fa-solid fa-circle-check"></i> 100% FREE Consultation
+                        </div>
+                        <div class="trust-item d-flex align-items-center gap-2">
+                            <i class="fa-solid fa-circle-check"></i> No Hidden Charges
+                        </div>
+                        <div class="trust-item d-flex align-items-center gap-2">
+                            <i class="fa-solid fa-circle-check"></i> Personalized Advice
+                        </div>
+                    </div>
+
+                    <!-- Services Grid -->
+                    <h5 class="fw-bold mb-3 text-secondary">Our Financial Advisory Services</h5>
+                    <div class="row row-cols-1 row-cols-sm-2 g-2">
+                        <!-- Service item start -->
+                        <div class="col">
+                            <div class="service-item d-flex align-items-center p-2.5 px-3 py-2">
+                                <div class="service-icon-box d-flex align-items-center justify-content-center me-3"><i class="fa-solid fa-chart-pie"></i></div>
+                                <span class="service-name">Mutual Funds</span>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="service-item d-flex align-items-center p-2.5 px-3 py-2">
+                                <div class="service-icon-box d-flex align-items-center justify-content-center me-3"><i class="fa-solid fa-calendar-check"></i></div>
+                                <span class="service-name">SIP Investment</span>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="service-item d-flex align-items-center p-2.5 px-3 py-2">
+                                <div class="service-icon-box d-flex align-items-center justify-content-center me-3"><i class="fa-solid fa-arrows-rotate"></i></div>
+                                <span class="service-name">STP / SWP</span>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="service-item d-flex align-items-center p-2.5 px-3 py-2">
+                                <div class="service-icon-box d-flex align-items-center justify-content-center me-3"><i class="fa-solid fa-heart-pulse"></i></div>
+                                <span class="service-name">Health Insurance</span>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="service-item d-flex align-items-center p-2.5 px-3 py-2">
+                                <div class="service-icon-box d-flex align-items-center justify-content-center me-3"><i class="fa-solid fa-hands-holding"></i></div>
+                                <span class="service-name">Life Insurance</span>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="service-item d-flex align-items-center p-2.5 px-3 py-2">
+                                <div class="service-icon-box d-flex align-items-center justify-content-center me-3"><i class="fa-solid fa-shield-halved"></i></div>
+                                <span class="service-name">Term Insurance</span>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="service-item d-flex align-items-center p-2.5 px-3 py-2">
+                                <div class="service-icon-box d-flex align-items-center justify-content-center me-3"><i class="fa-solid fa-graduation-cap"></i></div>
+                                <span class="service-name">Child Education Planning</span>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="service-item d-flex align-items-center p-2.5 px-3 py-2">
+                                <div class="service-icon-box d-flex align-items-center justify-content-center me-3"><i class="fa-solid fa-gem"></i></div>
+                                <span class="service-name">Marriage Goal Planning</span>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="service-item d-flex align-items-center p-2.5 px-3 py-2">
+                                <div class="service-icon-box d-flex align-items-center justify-content-center me-3"><i class="fa-solid fa-couch"></i></div>
+                                <span class="service-name">Retirement Planning</span>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="service-item d-flex align-items-center p-2.5 px-3 py-2">
+                                <div class="service-icon-box d-flex align-items-center justify-content-center me-3"><i class="fa-solid fa-piggy-bank"></i></div>
+                                <span class="service-name">Tax Saving (ELSS)</span>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="service-item d-flex align-items-center p-2.5 px-3 py-2">
+                                <div class="service-icon-box d-flex align-items-center justify-content-center me-3"><i class="fa-solid fa-vault"></i></div>
+                                <span class="service-name">Wealth Management</span>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="service-item d-flex align-items-center p-2.5 px-3 py-2">
+                                <div class="service-icon-box d-flex align-items-center justify-content-center me-3"><i class="fa-solid fa-chart-line"></i></div>
+                                <span class="service-name">Portfolio Review</span>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="service-item d-flex align-items-center p-2.5 px-3 py-2">
+                                <div class="service-icon-box d-flex align-items-center justify-content-center me-3"><i class="fa-solid fa-wallet"></i></div>
+                                <span class="service-name">Fixed Deposits</span>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="service-item d-flex align-items-center p-2.5 px-3 py-2">
+                                <div class="service-icon-box d-flex align-items-center justify-content-center me-3"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+                                <span class="service-name">Bonds</span>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="service-item d-flex align-items-center p-2.5 px-3 py-2">
+                                <div class="service-icon-box d-flex align-items-center justify-content-center me-3"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+                                <span class="service-name">Loan Against Mutual Funds</span>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="service-item d-flex align-items-center p-2.5 px-3 py-2">
+                                <div class="service-icon-box d-flex align-items-center justify-content-center me-3"><i class="fa-solid fa-folder-open"></i></div>
+                                <span class="service-name">General Insurance</span>
+                            </div>
+                        </div>
+                        <!-- Service item end -->
+                    </div>
                 </div>
-            </a>
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto align-items-lg-center mt-3 mt-lg-0">
-                    <li class="nav-item"><a class="nav-link px-3 fw-500" href="#services">Services</a></li>
-                    <li class="nav-item"><a class="nav-link px-3 fw-500" href="#why-choose-us">Why Choose Us</a></li>
-                    <li class="nav-item"><a class="nav-link px-3 fw-500" href="#journey">Journey</a></li>
-                    <li class="nav-item"><a class="nav-link px-3 fw-500" href="#testimonials">Testimonials</a></li>
-                    <li class="nav-item"><a class="nav-link px-3 fw-500" href="#faq">FAQ</a></li>
-                    <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
-                        <a href="#consultation-form" class="btn btn-gradient btn-sm px-4 py-2 text-white">Consult Free Now</a>
-                    </li>
-                </ul>
             </div>
-        </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="container">
-            <div class="row g-4 lg-g-5 align-items-start">
-                
-                <!-- Left Content Column -->
-                <div class="col-lg-7">
-                    <span class="badge px-3 py-2 rounded-pill mb-3" style="background-color: rgba(166, 30, 99, 0.08); color: var(--primary); font-weight: 600; font-size: 0.85rem;">
-                        <i class="bi bi-patch-check-fill me-1"></i> AMFI Registered Mutual Fund Distributor
-                    </span>
+            <!-- Right Side: Enquiry Form in Premium Glassmorphism Card -->
+            <div class="col-lg-6 order-1 order-lg-2">
+                <div class="glass-card p-4 p-lg-5">
                     
-                    <h1 class="display-5 fw-800 mb-3" style="line-height: 1.25; font-weight: 800;">
-                        Book Your Free <br><span class="text-gradient">Financial Consultation</span>
-                    </h1>
-                    
-                    <p class="lead text-muted mb-4" style="font-size: 1.1rem; line-height: 1.7;">
-                        Your trusted consultant for wealth creation, mutual funds, insurance &amp; goal-based financial planning. Let's build your peace of mind together.
-                    </p>
-                    
-                    <!-- Trust Badges Grid -->
-                    <div class="badge-grid mb-5">
-                        <div class="trust-badge-item">
-                            <i class="bi bi-shield-lock-fill"></i>
-                            <span>AMFI Registered</span>
+                    <!-- Main Form Container -->
+                    <div id="form-card-body">
+                        <div class="mb-4">
+                            <h4 class="fw-bold mb-1" style="color: var(--primary-color);">Enquire Now</h4>
+                            <p class="text-muted small mb-0">Fill out your details to coordinate with our financial advisors.</p>
                         </div>
-                        <div class="trust-badge-item">
-                            <i class="bi bi-person-workspace"></i>
-                            <span>Personalized Planning</span>
-                        </div>
-                        <div class="trust-badge-item">
-                            <i class="bi bi-eye-fill"></i>
-                            <span>Transparent Process</span>
-                        </div>
-                        <div class="trust-badge-item">
-                            <i class="bi bi-telephone-inbound-fill"></i>
-                            <span>Dedicated Relationship Mgr</span>
-                        </div>
-                        <div class="trust-badge-item">
-                            <i class="bi bi-phone-vibrate-fill"></i>
-                            <span>Online Investment Portal</span>
-                        </div>
-                        <div class="trust-badge-item">
-                            <i class="bi bi-gift-fill"></i>
-                            <span>Free Initial Consultation</span>
-                        </div>
-                    </div>
-                    
-                    <!-- Services Section inside Hero Left -->
-                    <div id="services" class="mb-4">
-                        <h4 class="fw-700 mb-4" style="color: var(--primary);">Explore Our Financial Solutions</h4>
-                        <div class="row g-3">
-                            <div class="col-sm-6">
-                                <div class="service-card">
-                                    <div class="service-icon"><i class="bi bi-graph-up-arrow"></i></div>
-                                    <h5 class="service-title">Mutual Funds</h5>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="service-card">
-                                    <div class="service-icon"><i class="bi bi-arrow-repeat"></i></div>
-                                    <h5 class="service-title">SIP Investment</h5>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="service-card">
-                                    <div class="service-icon"><i class="bi bi-arrow-left-right"></i></div>
-                                    <h5 class="service-title">STP &amp; SWP</h5>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="service-card">
-                                    <div class="service-icon"><i class="bi bi-heart-pulse"></i></div>
-                                    <h5 class="service-title">Health Insurance</h5>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="service-card">
-                                    <div class="service-icon"><i class="bi bi-shield-heart"></i></div>
-                                    <h5 class="service-title">Life &amp; Term Insurance</h5>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="service-card">
-                                    <div class="service-icon"><i class="bi bi-mortarboard"></i></div>
-                                    <h5 class="service-title">Child &amp; Marriage Goal</h5>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="service-card">
-                                    <div class="service-icon"><i class="bi bi-sun"></i></div>
-                                    <h5 class="service-title">Retirement Planning</h5>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="service-card">
-                                    <div class="service-icon"><i class="bi bi-percent"></i></div>
-                                    <h5 class="service-title">Tax Saving (ELSS)</h5>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="service-card">
-                                    <div class="service-icon"><i class="bi bi-wallet2"></i></div>
-                                    <h5 class="service-title">Wealth Management</h5>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="service-card">
-                                    <div class="service-icon"><i class="bi bi-clipboard-data"></i></div>
-                                    <h5 class="service-title">Portfolio Review</h5>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="service-card">
-                                    <div class="service-icon"><i class="bi bi-bank"></i></div>
-                                    <h5 class="service-title">Fixed Deposits &amp; Bonds</h5>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="service-card">
-                                    <div class="service-icon"><i class="bi bi-cash-stack"></i></div>
-                                    <h5 class="service-title">Loan Against Mutual Funds</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="p-3 rounded-4 bg-light-custom d-flex align-items-center gap-3 border border-1 mt-4" style="border-color: rgba(166, 30, 99, 0.1) !important;">
-                        <span class="fs-3"><i class="bi bi-cash-coin text-gradient"></i></span>
-                        <div>
-                            <p class="mb-0 fw-700 text-dark">100% FREE Consultation</p>
-                            <small class="text-muted">No hidden charges or unexpected upfront consulting fees.</small>
-                        </div>
-                    </div>
-                </div>
+                        <form id="enquiryForm" class="needs-validation" novalidate>
+                            
+                            <!-- Full Name -->
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="fullName" placeholder="Full Name" required autocomplete="name">
+                                <label for="fullName"><i class="fa-regular fa-user me-2"></i>Full Name</label>
+                                <div class="invalid-feedback">Please enter your full name.</div>
+                            </div>
 
-                <!-- Right Form Column -->
-                <div class="col-lg-5" id="consultation-form">
-                    <div class="glass-card enquiry-form-card p-4 p-md-5">
-                        <div class="text-center mb-4">
-                            <h3 class="fw-700 text-gradient mb-1">Let's Get Started</h3>
-                            <p class="text-muted small">Fill your details below to schedule your consultation slot</p>
-                        </div>
-                        
-                        <form id="leadForm" class="row g-3 needs-validation" novalidate>
-                            <div class="col-12">
-                                <div class="form-floating">
-                                    <input type="text" class="form-control" id="fullName" placeholder="Full Name" required pattern="[a-zA-Z\s]{3,50}">
-                                    <label for="fullName">Full Name</label>
-                                    <div class="invalid-feedback">Please enter a valid name (min 3 letters).</div>
-                                </div>
+                            <!-- Mobile Number -->
+                            <div class="form-floating mb-3">
+                                <input type="tel" class="form-control" id="mobileNumber" placeholder="Mobile Number" pattern="[6-9][0-9]{9}" required autocomplete="tel">
+                                <label for="mobileNumber"><i class="fa-solid fa-mobile-screen-button me-2"></i>Mobile Number</label>
+                                <div class="invalid-feedback">Please enter a valid 10-digit mobile number.</div>
                             </div>
-                            
-                            <div class="col-12">
-                                <div class="form-floating">
-                                    <input type="tel" class="form-control" id="mobileNumber" placeholder="Mobile Number" required pattern="[6-9][0-9]{9}">
-                                    <label for="mobileNumber">Mobile Number (10 digits)</label>
-                                    <div class="invalid-feedback">Please enter a valid 10-digit Indian mobile number.</div>
-                                </div>
+
+                            <!-- Email Address -->
+                            <div class="form-floating mb-3">
+                                <input type="email" class="form-control" id="emailAddress" placeholder="Email Address" required autocomplete="email">
+                                <label for="emailAddress"><i class="fa-regular fa-envelope me-2"></i>Email Address</label>
+                                <div class="invalid-feedback">Please enter a valid email address.</div>
                             </div>
-                            
-                            <div class="col-12">
-                                <div class="form-floating">
-                                    <input type="email" class="form-control" id="emailAddress" placeholder="Email Address" required>
-                                    <label for="emailAddress">Email Address</label>
-                                    <div class="invalid-feedback">Please enter a valid email address.</div>
-                                </div>
+
+                            <!-- City -->
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="cityName" placeholder="City" required autocomplete="address-level2">
+                                <label for="cityName"><i class="fa-solid fa-location-dot me-2"></i>City</label>
+                                <div class="invalid-feedback">Please enter your city.</div>
                             </div>
-                            
-                            <div class="col-12">
-                                <div class="form-floating">
-                                    <input type="text" class="form-control" id="city" placeholder="City" required minlength="2">
-                                    <label for="city">City</label>
-                                    <div class="invalid-feedback">Please enter your city.</div>
-                                </div>
+
+                            <!-- Investment Amount (Dropdown) -->
+                            <div class="form-floating mb-3">
+                                <select class="form-select" id="investmentAmount" required aria-label="Investment Amount">
+                                    <option value="" selected disabled>Select expected investment amount</option>
+                                    <option value="Below ₹50,000">Below ₹50,000</option>
+                                    <option value="₹50,000 – ₹1 Lakh">₹50,000 – ₹1 Lakh</option>
+                                    <option value="₹1 – ₹5 Lakh">₹1 – ₹5 Lakh</option>
+                                    <option value="₹5 – ₹10 Lakh">₹5 – ₹10 Lakh</option>
+                                    <option value="₹10 – ₹25 Lakh">₹10 – ₹25 Lakh</option>
+                                    <option value="Above ₹25 Lakh">Above ₹25 Lakh</option>
+                                </select>
+                                <label for="investmentAmount"><i class="fa-solid fa-indian-rupee-sign me-2"></i>Investment Amount</label>
+                                <div class="invalid-feedback">Please select an investment range.</div>
                             </div>
-                            
-                            <div class="col-12">
-                                <div class="form-floating">
-                                    <select class="form-select" id="investmentAmount" required>
-                                        <option value="" disabled selected>Select Investment Range</option>
-                                        <option value="Below ₹50,000">Below ₹50,000</option>
-                                        <option value="₹50,000 – ₹1 Lakh">₹50,000 – ₹1 Lakh</option>
-                                        <option value="₹1 – ₹5 Lakh">₹1 – ₹5 Lakh</option>
-                                        <option value="₹5 – ₹10 Lakh">₹5 – ₹10 Lakh</option>
-                                        <option value="₹10 – ₹25 Lakh">₹10 – ₹25 Lakh</option>
-                                        <option value="Above ₹25 Lakh">Above ₹25 Lakh</option>
-                                    </select>
-                                    <label for="investmentAmount">Investment Amount</label>
-                                    <div class="invalid-feedback">Please select your preferred range.</div>
-                                </div>
+
+                            <!-- Interested In (Dropdown) -->
+                            <div class="form-floating mb-3">
+                                <select class="form-select" id="interestedIn" required aria-label="Interested In">
+                                    <option value="" selected disabled>Select preferred financial service</option>
+                                    <option value="Mutual Funds">Mutual Funds</option>
+                                    <option value="SIP Investment">SIP Investment</option>
+                                    <option value="STP">STP</option>
+                                    <option value="SWP">SWP</option>
+                                    <option value="Health Insurance">Health Insurance</option>
+                                    <option value="Life Insurance">Life Insurance</option>
+                                    <option value="Term Insurance">Term Insurance</option>
+                                    <option value="Child Education Planning">Child Education Planning</option>
+                                    <option value="Marriage Goal Planning">Marriage Goal Planning</option>
+                                    <option value="Retirement Planning">Retirement Planning</option>
+                                    <option value="Tax Saving (ELSS)">Tax Saving (ELSS)</option>
+                                    <option value="Financial Planning">Financial Planning</option>
+                                    <option value="Wealth Management">Wealth Management</option>
+                                    <option value="Portfolio Review">Portfolio Review</option>
+                                    <option value="Fixed Deposits">Fixed Deposits</option>
+                                    <option value="Bonds">Bonds</option>
+                                    <option value="Loan Against Mutual Funds">Loan Against Mutual Funds</option>
+                                    <option value="General Insurance">General Insurance</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                                <label for="interestedIn"><i class="fa-solid fa-handshake me-2"></i>Interested In</label>
+                                <div class="invalid-feedback">Please select a service of interest.</div>
                             </div>
-                            
-                            <div class="col-12">
-                                <div class="form-floating">
-                                    <select class="form-select" id="interestedIn" required>
-                                        <option value="" disabled selected>Select Primary Area of Interest</option>
-                                        <option value="Mutual Funds">Mutual Funds</option>
-                                        <option value="SIP Investment">SIP Investment</option>
-                                        <option value="STP &amp; SWP">STP &amp; SWP</option>
-                                        <option value="Health Insurance">Health Insurance</option>
-                                        <option value="Life &amp; Term Insurance">Life &amp; Term Insurance</option>
-                                        <option value="Child Education / Marriage Planning">Child Education / Marriage Planning</option>
-                                        <option value="Retirement Goal">Retirement Planning</option>
-                                        <option value="Tax Saving (ELSS)">Tax Saving (ELSS)</option>
-                                        <option value="Comprehensive Financial Planning">Comprehensive Financial Planning</option>
-                                        <option value="Wealth Management">Wealth Management</option>
-                                        <option value="Portfolio Review">Portfolio Review</option>
-                                        <option value="Fixed Deposits &amp; Bonds">Fixed Deposits &amp; Bonds</option>
-                                        <option value="Loan Against Mutual Funds">Loan Against Mutual Funds</option>
-                                        <option value="General Insurance">General Insurance</option>
-                                        <option value="Other">Other Interest</option>
-                                    </select>
-                                    <label for="interestedIn">Interested In</label>
-                                    <div class="invalid-feedback">Please select an interest area.</div>
-                                </div>
+
+                            <!-- Message -->
+                            <div class="form-floating mb-4">
+                                <textarea class="form-control" id="userMessage" placeholder="Your Message" style="height: 100px;"></textarea>
+                                <label for="userMessage"><i class="fa-regular fa-comment-dots me-2"></i>Message (Optional)</label>
                             </div>
-                            
-                            <div class="col-12">
-                                <div class="form-floating">
-                                    <textarea class="form-control" placeholder="Describe your expectations..." id="message" style="height: 100px;"></textarea>
-                                    <label for="message">Message / Note (Optional)</label>
-                                </div>
+
+                            <!-- Large Gradient Button -->
+                            <button type="submit" class="btn btn-gradient w-100 d-flex align-items-center justify-content-center gap-2 mb-3">
+                                <span>BOOK FREE CONSULTATION</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+
+                            <!-- Security Badge -->
+                            <div class="text-center">
+                                <span class="security-text">
+                                    <i class="fa-solid fa-lock text-success me-1"></i> Your Information is 100% Safe & Secure.
+                                </span>
                             </div>
-                            
-                            <div class="col-12">
-                                <button type="submit" class="btn btn-gradient w-100 py-3 mt-2">
-                                    BOOK FREE CONSULTATION <i class="bi bi-arrow-right-short ms-1"></i>
-                                </button>
-                            </div>
-                            
-                            <div class="col-12 text-center mt-3">
-                                <p class="text-muted small mb-0"><i class="bi bi-shield-fill-check text-success me-1"></i> Your information is kept completely confidential &amp; secure.</p>
-                            </div>
+
                         </form>
                     </div>
-                </div>
 
-            </div>
-        </div>
-    </section>
-
-    <!-- Why Choose Desai Investments -->
-    <section id="why-choose-us" class="section-padding bg-light-custom">
-        <div class="container">
-            <div class="text-center max-width-600 mb-5 reveal">
-                <span class="text-uppercase fw-700 tracking-wide text-gradient" style="font-size: 0.85rem; letter-spacing: 1.5px;">Strategic Advantages</span>
-                <h2 class="display-6 fw-800 mt-2 mb-3">Why Partner with Desai Investments?</h2>
-                <p class="text-muted">A customer-centric approach to goal tracking, execution, and client protection.</p>
-            </div>
-            
-            <div class="row g-4">
-                <div class="col-md-4 col-sm-6 reveal">
-                    <div class="feature-card">
-                        <div class="feature-icon-wrapper"><i class="bi bi-bullseye"></i></div>
-                        <h4 class="fw-700 mb-2" style="font-size: 1.2rem;">Goal-Based Strategy</h4>
-                        <p class="text-muted mb-0" style="font-size: 0.9rem; line-height: 1.6;">We customize planning around real goals, aligning timelines directly with risk profiles.</p>
-                    </div>
-                </div>
-                
-                <div class="col-md-4 col-sm-6 reveal">
-                    <div class="feature-card">
-                        <div class="feature-icon-wrapper"><i class="bi bi-patch-check"></i></div>
-                        <h4 class="fw-700 mb-2" style="font-size: 1.2rem;">Trusted Counsel</h4>
-                        <p class="text-muted mb-0" style="font-size: 0.9rem; line-height: 1.6;">Registered with AMFI. Your plans are supported by industry-compliant insights.</p>
-                    </div>
-                </div>
-                
-                <div class="col-md-4 col-sm-6 reveal">
-                    <div class="feature-card">
-                        <div class="feature-icon-wrapper"><i class="bi bi-gem"></i></div>
-                        <h4 class="fw-700 mb-2" style="font-size: 1.2rem;">Wealth Preservation</h4>
-                        <p class="text-muted mb-0" style="font-size: 0.9rem; line-height: 1.6;">We structuralize capital protection strategies relative to market trends.</p>
-                    </div>
-                </div>
-                
-                <div class="col-md-4 col-sm-6 reveal">
-                    <div class="feature-card">
-                        <div class="feature-icon-wrapper"><i class="bi bi-receipt-cutoff"></i></div>
-                        <h4 class="fw-700 mb-2" style="font-size: 1.2rem;">Tax Optimization</h4>
-                        <p class="text-muted mb-0" style="font-size: 0.9rem; line-height: 1.6;">Maximize dual exemptions and dynamic deductions through modern asset tools.</p>
-                    </div>
-                </div>
-                
-                <div class="col-md-4 col-sm-6 reveal">
-                    <div class="feature-card">
-                        <div class="feature-icon-wrapper"><i class="bi bi-briefcase"></i></div>
-                        <h4 class="fw-700 mb-2" style="font-size: 1.2rem;">Portfolio Audit</h4>
-                        <p class="text-muted mb-0" style="font-size: 0.9rem; line-height: 1.6;">Continuous systematic monitoring ensures alignment with long-term risk limits.</p>
-                    </div>
-                </div>
-                
-                <div class="col-md-4 col-sm-6 reveal">
-                    <div class="feature-card">
-                        <div class="feature-icon-wrapper"><i class="bi bi-headset"></i></div>
-                        <h4 class="fw-700 mb-2" style="font-size: 1.2rem;">Dedicated Client Care</h4>
-                        <p class="text-muted mb-0" style="font-size: 0.9rem; line-height: 1.6;">Direct access to resolve complex adjustments and operational changes quickly.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Investment Journey Timeline -->
-    <section id="journey" class="section-padding">
-        <div class="container">
-            <div class="text-center max-width-600 mb-5 reveal">
-                <span class="text-uppercase fw-700 tracking-wide text-gradient" style="font-size: 0.85rem; letter-spacing: 1.5px;">Simple &amp; Smooth Process</span>
-                <h2 class="display-6 fw-800 mt-2 mb-3">Your Journey to Financial Wellness</h2>
-                <p class="text-muted">A clear, structured path from our first introductory call to building your comprehensive plan.</p>
-            </div>
-            
-            <div class="timeline-container">
-                <div class="row g-4 lg-g-0">
-                    <div class="col-lg col-md-12 reveal">
-                        <div class="timeline-step">
-                            <div class="timeline-icon">1</div>
-                            <h5 class="fw-700 mb-2">Consultation</h5>
-                            <p class="text-muted small px-3 mb-0">Initial conversation to capture your personal financial challenges and objectives.</p>
+                    <!-- Post-Submission Interactive State -->
+                    <div id="success-state" class="success-wrapper">
+                        <div class="success-icon-wrapper">
+                            <i class="fa-solid fa-check"></i>
                         </div>
-                        <div class="text-center timeline-arrow"><i class="bi bi-arrow-down"></i></div>
-                    </div>
-                    
-                    <div class="col-lg col-md-12 reveal">
-                        <div class="timeline-step">
-                            <div class="timeline-icon">2</div>
-                            <h5 class="fw-700 mb-2">Financial Analysis</h5>
-                            <p class="text-muted small px-3 mb-0">Evaluating income flows, existing investments, risk capability, and cash demands.</p>
-                        </div>
-                        <div class="text-center timeline-arrow"><i class="bi bi-arrow-down"></i></div>
-                    </div>
-                    
-                    <div class="col-lg col-md-12 reveal">
-                        <div class="timeline-step">
-                            <div class="timeline-icon">3</div>
-                            <h5 class="fw-700 mb-2">Custom Planning</h5>
-                            <p class="text-muted small px-3 mb-0">Creating a specialized asset allocation map targeted directly at key goals.</p>
-                        </div>
-                        <div class="text-center timeline-arrow"><i class="bi bi-arrow-down"></i></div>
-                    </div>
-                    
-                    <div class="col-lg col-md-12 reveal">
-                        <div class="timeline-step">
-                            <div class="timeline-icon">4</div>
-                            <h5 class="fw-700 mb-2">Investment</h5>
-                            <p class="text-muted small px-3 mb-0">Convenient digital onboarding to safely allocate capital with transparency.</p>
-                        </div>
-                        <div class="text-center timeline-arrow"><i class="bi bi-arrow-down"></i></div>
-                    </div>
-                    
-                    <div class="col-lg col-md-12 reveal">
-                        <div class="timeline-step">
-                            <div class="timeline-icon">5</div>
-                            <h5 class="fw-700 mb-2">Ongoing Review</h5>
-                            <p class="text-muted small px-3 mb-0">Periodic updates to fine-tune your portfolio as market trends or lifepaths evolve.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Client Testimonials -->
-    <section id="testimonials" class="section-padding bg-light-custom">
-        <div class="container">
-            <div class="text-center max-width-600 mb-5 reveal">
-                <span class="text-uppercase fw-700 tracking-wide text-gradient" style="font-size: 0.85rem; letter-spacing: 1.5px;">Client Stories</span>
-                <h2 class="display-6 fw-800 mt-2 mb-3">Our Client Experiences</h2>
-                <p class="text-muted">Hear from individuals who have worked with us to help organize and grow their financial paths.</p>
-            </div>
-            
-            <div class="row g-4">
-                <div class="col-md-4 reveal">
-                    <div class="testimonial-card h-100 d-flex flex-column justify-content-between">
-                        <div>
-                            <div class="star-rating mb-3">
-                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                            </div>
-                            <p class="text-muted mb-4 italic">"The planning support has been incredibly thorough. I received practical answers regarding ELSS selection and SIP options. Highly recommended!"</p>
-                        </div>
-                        <div class="d-flex align-items-center gap-3">
-                            <div class="bg-gradient-primary rounded-circle text-white d-flex align-items-center justify-content-center" style="width: 48px; height: 48px; font-weight: 700;">AM</div>
-                            <div>
-                                <h6 class="mb-0 fw-700">Abhishek Mehta</h6>
-                                <small class="text-muted">IT Professional</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-4 reveal">
-                    <div class="testimonial-card h-100 d-flex flex-column justify-content-between">
-                        <div>
-                            <div class="star-rating mb-3">
-                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                            </div>
-                            <p class="text-muted mb-4 italic">"Working with them helped us structure our retirement planning with clarity. The transparency across options made all the difference."</p>
-                        </div>
-                        <div class="d-flex align-items-center gap-3">
-                            <div class="bg-gradient-primary rounded-circle text-white d-flex align-items-center justify-content-center" style="width: 48px; height: 48px; font-weight: 700;">RP</div>
-                            <div>
-                                <h6 class="mb-0 fw-700">Rachna Patel</h6>
-                                <small class="text-muted">Business Owner</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-4 reveal">
-                    <div class="testimonial-card h-100 d-flex flex-column justify-content-between">
-                        <div>
-                            <div class="star-rating mb-3">
-                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                            </div>
-                            <p class="text-muted mb-4 italic">"Extremely professional. Their team explained term plans versus traditional options in a straightforward, unbiased manner."</p>
-                        </div>
-                        <div class="d-flex align-items-center gap-3">
-                            <div class="bg-gradient-primary rounded-circle text-white d-flex align-items-center justify-content-center" style="width: 48px; height: 48px; font-weight: 700;">SK</div>
-                            <div>
-                                <h6 class="mb-0 fw-700">Sandeep Kumar</h6>
-                                <small class="text-muted">Senior Consultant</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Frequently Asked Questions -->
-    <section id="faq" class="section-padding">
-        <div class="container" style="max-width: 800px;">
-            <div class="text-center mb-5 reveal">
-                <span class="text-uppercase fw-700 tracking-wide text-gradient" style="font-size: 0.85rem; letter-spacing: 1.5px;">FAQ</span>
-                <h2 class="display-6 fw-800 mt-2 mb-3">Common Questions</h2>
-                <p class="text-muted">Quick responses to typical inquiries about our process and services.</p>
-            </div>
-            
-            <div class="accordion accordion-flush reveal" id="faqAccordion">
-                
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
-                            Is the initial consultation completely free of charge?
+                        <h4 class="fw-bold mb-2 text-dark">Thank You!</h4>
+                        <p class="text-muted px-lg-3">Your financial consultation request has been securely registered. Our certified advisor will contact you within one business day.</p>
+                        <button type="button" class="btn btn-outline-secondary btn-sm mt-3 px-4" onclick="resetFormCard()">
+                            Submit New Inquiry
                         </button>
-                    </h2>
-                    <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                        <div class="accordion-body text-muted">
-                            Yes, your first detailed consultation is free. We discuss your needs, review basic options, and establish how we can work together to organize your path.
-                        </div>
                     </div>
-                </div>
-                
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
-                            What is the AMFI registration status of Desai Investments?
-                        </button>
-                    </h2>
-                    <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                        <div class="accordion-body text-muted">
-                            Desai Investments is a registered Mutual Fund Distributor with the Association of Mutual Funds in India (AMFI). This ensures compliance with regulatory distribution frameworks.
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
-                            How do you structure custom financial recommendations?
-                        </button>
-                    </h2>
-                    <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                        <div class="accordion-body text-muted">
-                            Our planning is based directly on your age, risk profile, financial goals, and retirement objectives. We balance capital protection with optimal risk structures.
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
-                            Can I access and track my investments online?
-                        </button>
-                    </h2>
-                    <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                        <div class="accordion-body text-muted">
-                            Absolutely. We provide secure online portal access so you can view, track performance, and initiate transactions across mutual funds at your convenience.
-                        </div>
-                    </div>
-                </div>
 
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
-                            Do you assist with insurance planning as well?
-                        </button>
-                    </h2>
-                    <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                        <div class="accordion-body text-muted">
-                            Yes, we help clients assess and select Term, Life, and Health Insurance plans, aligning coverage directly with family dependencies and debt protection needs.
-                        </div>
-                    </div>
                 </div>
-                
             </div>
+
         </div>
-    </section>
+    </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="row g-4 mb-5">
-                
-                <div class="col-lg-4 col-md-6">
-                    <div class="footer-logo d-flex align-items-center mb-3">
-                        <svg width="40" height="40" viewBox="0 0 100 100" class="me-2" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="50" cy="50" r="45" fill="none" stroke="#FFFFFF" stroke-width="8"/>
-                            <path d="M50,15 C69,15 85,31 85,50 C85,69 69,85 50,85 C31,85 20,65 35,45 C45,32 55,25 50,15 Z" fill="#FFFFFF"/>
-                            <circle cx="50" cy="50" r="10" fill="#A61E63"/>
-                        </svg>
-                        <div>
-                            <span style="color: #FFFFFF; font-weight: 800; font-size: 1.25rem; letter-spacing: -0.5px; display: block; line-height: 1;">DESAI INVESTMENTS</span>
-                            <span class="brand-subtitle text-white-50">देसाई बोलता है</span>
-                        </div>
-                    </div>
-                    <p class="small text-white-50 mb-3">AMFI Registered Mutual Funds Distributor dedicated to making financial wellness accessible, simple, and tailored for every goal.</p>
-                    <div class="d-flex gap-2">
-                        <a href="tel:9428129291" class="btn btn-outline-light btn-sm rounded-circle" style="width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;"><i class="bi bi-telephone"></i></a>
-                        <a href="https://wa.me/919428129291" target="_blank" class="btn btn-outline-light btn-sm rounded-circle" style="width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;"><i class="bi bi-whatsapp"></i></a>
-                    </div>
-                </div>
-                
-                <div class="col-lg-2 col-md-6">
-                    <h5 class="footer-title">Quick Links</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#services" class="footer-link">Our Services</a></li>
-                        <li><a href="#why-choose-us" class="footer-link">Why Choose Us</a></li>
-                        <li><a href="#journey" class="footer-link">Our Journey</a></li>
-                        <li><a href="#testimonials" class="footer-link">Testimonials</a></li>
-                        <li><a href="#faq" class="footer-link">Common FAQs</a></li>
-                    </ul>
-                </div>
-                
-                <div class="col-lg-3 col-md-6">
-                    <h5 class="footer-title">Contact Us</h5>
-                    <ul class="list-unstyled text-white-50 small">
-                        <li class="mb-3 d-flex gap-2">
-                            <i class="bi bi-geo-alt-fill text-white"></i>
-                            <span>Office Contact Address, Gujarat, India</span>
-                        </li>
-                        <li class="mb-3 d-flex gap-2">
-                            <i class="bi bi-envelope-fill text-white"></i>
-                            <a href="mailto:support@desaiinvestment.in" class="text-white-50 text-decoration-none">support@desaiinvestment.in</a>
-                        </li>
-                        <li class="mb-3 d-flex gap-2">
-                            <i class="bi bi-telephone-fill text-white"></i>
-                            <div>
-                                <a href="tel:9428129291" class="text-white-50 text-decoration-none">94281 29291</a><br>
-                                <a href="tel:9428878465" class="text-white-50 text-decoration-none">94288 78465</a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                
-                <div class="col-lg-3 col-md-6">
-                    <h5 class="footer-title">Legal Details</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="footer-link">Privacy Policy</a></li>
-                        <li><a href="#" class="footer-link">Terms of Service</a></li>
-                        <li><a href="#" class="footer-link">AMFI Registration Info</a></li>
-                    </ul>
-                </div>
-                
-            </div>
-            
-            <hr style="border-color: rgba(255, 255, 255, 0.1);">
-            
-            <div class="row align-items-center g-3">
-                <div class="col-12">
-                    <p class="disclaimer-text mb-3">
-                        <strong>Disclaimer:</strong> Mutual Fund investments are subject to market risks. Please read all scheme-related documents carefully before investing. Past performance is not indicative of future performance. Desai Investments serves as an AMFI registered distributor, presenting curated information to support decisions.
-                    </p>
-                </div>
-                <div class="col-md-6 text-center text-md-start">
-                    <p class="small text-white-50 mb-0">&copy; <span id="currentYear"></span> Desai Investments. All rights reserved.</p>
-                </div>
-                <div class="col-md-6 text-center text-md-end">
-                    <p class="small text-white-50 mb-0">Designed for Secure Advisory Compliance</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Floating Quick Actions Container -->
-    <div class="floating-action-container">
-        <a href="https://wa.me/919428129291?text=Hello%20Desai%20Investments,%20I%20am%20interested%20in%20a%20free%20financial%20consultation." target="_blank" class="btn-floating btn-float-whatsapp" title="WhatsApp Chat">
-            <i class="bi bi-whatsapp"></i>
+    <!-- Mobile Dynamic Sticky Action Bar -->
+    <div class="sticky-action-bar mobile-action-bar gap-2">
+        <a href="https://wa.me/919876543210?text=Hello%20Desai%20Investments%2C%20I%20would%20like%20to%20know%20more%20about%20your%20financial%20consultation." 
+           class="btn btn-mobile-whatsapp flex-grow-1 d-flex align-items-center justify-content-center gap-2" 
+           target="_blank" 
+           rel="noopener">
+            <i class="fa-brands fa-whatsapp fs-5"></i> WhatsApp
         </a>
-        <a href="tel:9428129291" class="btn-floating btn-float-call" title="Call Us Direct">
-            <i class="bi bi-telephone-fill"></i>
-        </a>
-        <a href="#consultation-form" class="btn-floating btn-float-consult" title="Book Consultation">
-            <i class="bi bi-calendar-check-fill"></i>
+        <a href="tel:+919876543210" 
+           class="btn btn-mobile-call flex-grow-1 d-flex align-items-center justify-content-center gap-2">
+            <i class="fa-solid fa-phone fs-5"></i> Call Us
         </a>
     </div>
 
-    <!-- Bootstrap 5 JavaScript Bundle with Popper -->
+    <!-- Bootstrap 5 Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6Rz83916wY5qON33rHeTC533L0O379/LD3xz9i9d872v3QN3HNm/5cd3eG5LD73" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Interactive Front-end Logic -->
     <script>
-        // Set dynamic copyright year
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
-
-        // Handle Form Validation & Submission Process gracefully
+        // Form Validation & Interface Dynamics
         (() => {
             'use strict';
-            const form = document.getElementById('leadForm');
-            const spinner = document.getElementById('loadingSpinner');
-
+            const form = document.getElementById('enquiryForm');
+            
             form.addEventListener('submit', event => {
                 if (!form.checkValidity()) {
                     event.preventDefault();
                     event.stopPropagation();
                     form.classList.add('was-validated');
                 } else {
-                    event.preventDefault();
+                    event.preventDefault(); // Stop page reload for dynamic API integration mock
                     
-                    // Display visual processing overlay
-                    spinner.style.display = 'flex';
-
-                    // Mock API Submission to simulate enterprise performance
-                    setTimeout(() => {
-                        spinner.style.display = 'none';
-                        
-                        // Extract Name safely
-                        const userName = document.getElementById('fullName').value.trim();
-                        
-                        // Generate a sleek Success Feedback modal dynamically
-                        const modalHtml = `
-                            <div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered">
-                                    <div class="modal-content border-0 shadow-lg rounded-4">
-                                        <div class="modal-body text-center p-5">
-                                            <div class="display-1 text-success mb-3">
-                                                <i class="bi bi-check-circle-fill"></i>
-                                            </div>
-                                            <h3 class="fw-800 mb-2">Thank You, ${userName}!</h3>
-                                            <p class="text-muted mb-4">Your request has been successfully recorded. One of our dedicated financial counselors will reach out to you within 24 working hours.</p>
-                                            <button type="button" class="btn btn-gradient px-4" data-bs-dismiss="modal">Close</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        `;
-                        
-                        document.body.insertAdjacentHTML('beforeend', modalHtml);
-                        const successModalElement = document.getElementById('successModal');
-                        const successModal = new bootstrap.Modal(successModalElement);
-                        successModal.show();
-                        
-                        // Clean up form inputs
-                        form.reset();
-                        form.classList.remove('was-validated');
-
-                        // Remove modal markup from DOM once closed
-                        successModalElement.addEventListener('hidden.bs.modal', () => {
-                            successModalElement.remove();
-                        });
-
-                    }, 1500);
+                    // Transition to successful visual outcome state
+                    document.getElementById('form-card-body').style.display = 'none';
+                    const successDiv = document.getElementById('success-state');
+                    successDiv.style.display = 'block';
+                    successDiv.classList.add('animate__animated', 'animate__fadeIn');
                 }
             }, false);
         })();
 
-        // Reveal sections on scroll utilizing Intersection Observer
-        const revealElements = document.querySelectorAll('.reveal');
-        const revealObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        });
-
-        revealElements.forEach(element => {
-            revealObserver.observe(element);
-        });
-
-        // Quick Scroll functionality for visual cards to smooth navigate on selection
-        document.querySelectorAll('.service-card').forEach(card => {
-            card.addEventListener('click', () => {
-                const targetService = card.querySelector('.service-title').innerText;
-                const interestSelect = document.getElementById('interestedIn');
-                
-                // Select matching element inside dropdown list
-                for (let i = 0; i < interestSelect.options.length; i++) {
-                    if (interestSelect.options[i].text.includes(targetService) || targetService.includes(interestSelect.options[i].text)) {
-                        interestSelect.selectedIndex = i;
-                        break;
-                    }
-                }
-                
-                // Scroll focus into view instantly
-                document.getElementById('consultation-form').scrollIntoView({ behavior: 'smooth' });
-            });
-        });
+        // Function to return to fresh form view
+        function resetFormCard() {
+            const form = document.getElementById('enquiryForm');
+            form.reset();
+            form.classList.remove('was-validated');
+            document.getElementById('success-state').style.display = 'none';
+            document.getElementById('form-card-body').style.display = 'block';
+        }
     </script>
 </body>
 </html>
