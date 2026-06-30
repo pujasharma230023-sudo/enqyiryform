@@ -3,56 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desai Investments | Premium Financial Enquiry</title>
+    <title>Desai Investments - WhatsApp Enquiry Form</title>
     
     <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/style.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     
     <!-- Google Font: Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- FontAwesome 6 for Premium Icons -->
+    <!-- FontAwesome 6 for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* CSS Variables for Brand Theme Consistency */
         :root {
             --primary-color: #A61E63;
             --secondary-color: #D63384;
-            --bg-color: #FFFFFF;
-            --text-main: #2D2D2D;
-            --text-muted: #5F6368;
-            --glass-bg: rgba(255, 255, 255, 0.88);
-            --glass-border: rgba(255, 255, 255, 0.6);
-            --shadow-subtle: 0 12px 40px rgba(166, 30, 99, 0.05);
-            --shadow-hover: 0 20px 48px rgba(166, 30, 99, 0.1);
+            --whatsapp-green: #25D366;
+            --body-bg: #f5f7fb;
+            --text-dark: #2c3e50;
         }
 
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #FCF8FA 0%, #FFFFFF 100%);
-            color: var(--text-main);
-            overflow-x: hidden;
+            background-color: var(--body-bg);
+            background-image: radial-gradient(circle at 50% 50%, rgba(166, 30, 99, 0.03) 0%, rgba(255, 255, 255, 0) 100%);
+            color: var(--text-dark);
             min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 10px;
         }
 
-        /* Responsive Banner Container */
-        .banner-wrapper {
+        /* Form Wrapper Card with Glassmorphism */
+        .enquiry-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(166, 30, 99, 0.08);
+            width: 100%;
+            max-width: 550px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        /* Banner styling inside the card */
+        .card-banner {
             position: relative;
             width: 100%;
-            height: 240px;
+            height: 140px;
             overflow: hidden;
-            background-color: #1a1a1a;
+            background-color: var(--primary-color);
         }
 
-        .banner-img {
+        .card-banner img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            display: block;
         }
 
         .banner-overlay {
@@ -61,606 +72,334 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to right, rgba(166, 30, 99, 0.9) 0%, rgba(214, 51, 132, 0.4) 100%);
+            background: linear-gradient(135deg, rgba(166, 30, 99, 0.85) 0%, rgba(214, 51, 132, 0.5) 100%);
         }
 
-        .banner-content {
+        .banner-text {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            bottom: 15px;
+            left: 20px;
+            right: 20px;
+            color: #ffffff;
             z-index: 2;
         }
 
-        .logo-wrapper {
-            width: 55px;
-            height: 55px;
-            background: #FFFFFF;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .logo-text {
-            color: var(--primary-color);
-            font-weight: 700;
+        .banner-text h3 {
             font-size: 1.4rem;
-        }
-
-        .logo-title {
-            color: #FFFFFF;
             font-weight: 700;
-            font-size: 1.8rem;
+            margin-bottom: 2px;
             letter-spacing: -0.5px;
         }
 
-        .logo-subtitle {
-            color: rgba(255, 255, 255, 0.85);
+        .banner-text p {
             font-size: 0.85rem;
-            font-weight: 400;
+            opacity: 0.9;
+            margin-bottom: 0;
         }
 
-        /* Headline Styling */
-        .headline {
-            color: var(--primary-color);
-            font-weight: 700;
-            letter-spacing: -0.5px;
+        /* Form styling */
+        .card-body {
+            padding: 25px 20px;
         }
 
-        .sub-headline {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            font-weight: 400;
+        .form-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 6px;
         }
 
-        /* Glassmorphism Card Design */
-        .glass-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
-            box-shadow: var(--shadow-subtle);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .glass-card:hover {
-            box-shadow: var(--shadow-hover);
-        }
-
-        /* Premium Custom Inputs */
-        .form-floating > .form-control,
-        .form-floating > .form-select {
+        /* Custom Input Height and styling (55px) */
+        .form-control, .form-select {
             height: 55px;
-            border-radius: 12px;
-            border: 1.5px solid #E2E8F0;
-            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            border: 1.5px solid #e2e8f0;
             font-size: 0.95rem;
-            color: var(--text-main);
-            transition: all 0.25s ease;
-        }
-
-        .form-floating > textarea.form-control {
-            height: 100px;
-        }
-
-        .form-floating > .form-control:focus,
-        .form-floating > .form-select:focus {
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 4px rgba(166, 30, 99, 0.12);
-            background-color: #FFFFFF;
-        }
-
-        .form-floating > label {
             padding-left: 15px;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
-        /* Services Grid Styling */
-        .service-item {
-            background: #FFFFFF;
-            border: 1.5px solid #F3EAF0;
-            border-radius: 12px;
             transition: all 0.25s ease;
+            background-color: #ffffff;
         }
 
-        .service-item:hover {
-            border-color: var(--secondary-color);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(166, 30, 99, 0.05);
+        .form-control:focus, .form-select:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 4px rgba(166, 30, 99, 0.1);
+            outline: none;
         }
 
-        .service-icon-box {
-            width: 38px;
-            height: 38px;
-            background-color: rgba(166, 30, 99, 0.07);
-            color: var(--primary-color);
-            border-radius: 8px;
-            font-size: 0.95rem;
-            transition: all 0.25s ease;
+        textarea.form-control {
+            height: auto;
+            padding-top: 12px;
         }
 
-        .service-item:hover .service-icon-box {
-            background-color: var(--primary-color);
-            color: #FFFFFF;
-        }
-
-        .service-name {
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: #3D424A;
-        }
-
-        /* Highlighted Trust Box */
-        .trust-box {
-            background: linear-gradient(135deg, rgba(166, 30, 99, 0.05) 0%, rgba(214, 51, 132, 0.05) 100%);
-            border: 1px dashed rgba(166, 30, 99, 0.3);
-            border-radius: 16px;
-        }
-
-        .trust-item {
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--primary-color);
-        }
-
-        /* Premium Interactive Submit Button */
-        .btn-gradient {
+        /* Send WhatsApp Button */
+        .btn-whatsapp-submit {
             background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            border: none;
-            height: 55px;
-            border-radius: 12px;
-            color: #FFFFFF;
+            color: #ffffff;
+            font-size: 1rem;
             font-weight: 600;
-            letter-spacing: 0.5px;
+            height: 55px;
+            border: none;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
             transition: all 0.3s ease;
-            box-shadow: 0 6px 20px rgba(166, 30, 99, 0.2);
+            box-shadow: 0 5px 15px rgba(166, 30, 99, 0.2);
+            width: 100%;
         }
 
-        .btn-gradient:hover {
+        .btn-whatsapp-submit:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(166, 30, 99, 0.35);
-            color: #FFFFFF;
+            box-shadow: 0 8px 20px rgba(166, 30, 99, 0.3);
+            color: #ffffff;
+            opacity: 0.95;
         }
 
-        .btn-gradient:active {
+        .btn-whatsapp-submit:active {
             transform: translateY(1px);
         }
 
-        .security-text {
-            font-size: 0.85rem;
-            color: var(--text-muted);
+        .btn-whatsapp-submit i {
+            font-size: 1.25rem;
         }
 
-        /* Sticky Call & WhatsApp Buttons for Mobile View */
-        .mobile-action-bar {
+        .footer-note {
+            font-size: 0.8rem;
+            color: #718096;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        /* Floating action buttons for mobile */
+        .sticky-bar {
             position: fixed;
             bottom: 0;
             left: 0;
             right: 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
-            z-index: 1030;
-            padding: 12px 16px;
+            background: #ffffff;
+            box-shadow: 0 -4px 10px rgba(0,0,0,0.06);
+            padding: 10px 15px;
+            z-index: 1000;
             display: none;
-        }
-
-        .btn-mobile-whatsapp {
-            background-color: #25D366;
-            color: #FFFFFF;
-            font-weight: 600;
-            border: none;
-            border-radius: 10px;
-            height: 48px;
-            font-size: 0.95rem;
-        }
-
-        .btn-mobile-whatsapp:hover, .btn-mobile-whatsapp:focus {
-            background-color: #20BA5A;
-            color: #FFFFFF;
-        }
-
-        .btn-mobile-call {
-            background-color: var(--primary-color);
-            color: #FFFFFF;
-            font-weight: 600;
-            border: none;
-            border-radius: 10px;
-            height: 48px;
-            font-size: 0.95rem;
-        }
-
-        .btn-mobile-call:hover, .btn-mobile-call:focus {
-            background-color: #8C1752;
-            color: #FFFFFF;
-        }
-
-        /* Interactive Card Success Flip View */
-        .success-wrapper {
-            display: none;
-            text-align: center;
-            padding: 40px 20px;
-        }
-
-        .success-icon-wrapper {
-            width: 70px;
-            height: 70px;
-            background-color: rgba(37, 211, 102, 0.1);
-            color: #25D366;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            margin-bottom: 20px;
-        }
-
-        /* Custom Scrollbar for Smooth UI Look */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #F8F9FA;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #D5C2CD;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--primary-color);
-        }
-
-        /* Responsive Breakpoints & Mobile Optimization */
-        @media (max-width: 991.98px) {
-            .banner-wrapper {
-                height: 180px;
-            }
-            .logo-title {
-                font-size: 1.5rem;
-            }
         }
 
         @media (max-width: 767.98px) {
             body {
-                padding-bottom: 75px; /* Offset to prevent content overlap with sticky footer */
+                padding-bottom: 80px; /* spacing for sticky bar */
             }
-            .mobile-action-bar {
+            .sticky-bar {
                 display: flex;
+                gap: 10px;
             }
-            .glass-card {
-                padding: 24px 16px !important;
-                border-radius: 16px;
+            .enquiry-card {
+                border-radius: 15px;
             }
+        }
+
+        /* Custom green button style for secondary callouts */
+        .btn-whatsapp-green {
+            background-color: var(--whatsapp-green);
+            color: #ffffff;
+            border-radius: 8px;
+            font-weight: 600;
+            border: none;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .btn-call-purple {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            border-radius: 8px;
+            font-weight: 600;
+            border: none;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px;
+            text-decoration: none;
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
 
-    <!-- Responsive Corporate Banner -->
-    <div class="banner-wrapper">
-        <!-- If "banner.jpg" is present in your folder, it will load perfectly. 
-             If missing, we've provided a premium Unsplash architecture-fallback image background -->
-        <img src="banner.jpg" class="banner-img" alt="Desai Investments Banner" onerror="this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80';">
-        <div class="banner-overlay"></div>
-        <div class="banner-content d-flex align-items-center">
-            <div class="container px-4">
-                <div class="d-flex align-items-center gap-3">
-                    <div class="logo-wrapper d-flex align-items-center justify-content-center">
-                        <span class="logo-text">DI</span>
-                    </div>
-                    <div>
-                        <h1 class="logo-title mb-0">Desai Investments</h1>
-                        <p class="logo-subtitle mb-0">Secure Future • Personalized Wealth Growth</p>
-                    </div>
-                </div>
+    <div class="enquiry-card">
+        <!-- Top Corporate Banner -->
+        <div class="card-banner">
+            <!-- default dynamic finance image as fallback if banner.jpg is missing -->
+            <img src="banner.jpg" alt="Desai Investments" onerror="this.src='https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80';">
+            <div class="banner-overlay"></div>
+            <div class="banner-text">
+                <h3>Desai Investments</h3>
+                <p>Book Your Free Financial Consultation</p>
             </div>
+        </div>
+
+        <div class="card-body">
+            <form id="whatsappForm" class="needs-validation" novalidate>
+                
+                <!-- Full Name -->
+                <div class="mb-3">
+                    <label class="form-label" for="fullName">Full Name</label>
+                    <input type="text" class="form-control" id="fullName" placeholder="Enter your full name" required>
+                    <div class="invalid-feedback">Please enter your name.</div>
+                </div>
+
+                <!-- Mobile Number -->
+                <div class="mb-3">
+                    <label class="form-label" for="mobileNumber">Mobile Number</label>
+                    <input type="tel" class="form-control" id="mobileNumber" placeholder="Enter 10-digit mobile number" pattern="[6-9][0-9]{9}" required>
+                    <div class="invalid-feedback">Please enter a valid 10-digit mobile number.</div>
+                </div>
+
+                <!-- Email Address -->
+                <div class="mb-3">
+                    <label class="form-label" for="emailAddress">Email Address</label>
+                    <input type="email" class="form-control" id="emailAddress" placeholder="name@domain.com" required>
+                    <div class="invalid-feedback">Please enter a valid email address.</div>
+                </div>
+
+                <!-- City -->
+                <div class="mb-3">
+                    <label class="form-label" for="cityName">City</label>
+                    <input type="text" class="form-control" id="cityName" placeholder="Your city" required>
+                    <div class="invalid-feedback">Please enter your city.</div>
+                </div>
+
+                <!-- Investment Amount Dropdown -->
+                <div class="mb-3">
+                    <label class="form-label" for="investmentAmount">Investment Amount</label>
+                    <select class="form-select" id="investmentAmount" required>
+                        <option value="" disabled selected>Select Investment Range</option>
+                        <option value="Below ₹50,000">Below ₹50,000</option>
+                        <option value="₹50,000 – ₹1 Lakh">₹50,000 – ₹1 Lakh</option>
+                        <option value="₹1 – ₹5 Lakh">₹1 – ₹5 Lakh</option>
+                        <option value="₹5 – ₹10 Lakh">₹5 – ₹10 Lakh</option>
+                        <option value="₹10 – ₹25 Lakh">₹10 – ₹25 Lakh</option>
+                        <option value="Above ₹25 Lakh">Above ₹25 Lakh</option>
+                    </select>
+                    <div class="invalid-feedback">Please select an investment amount.</div>
+                </div>
+
+                <!-- Interested In Dropdown -->
+                <div class="mb-3">
+                    <label class="form-label" for="interestedIn">Interested In</label>
+                    <select class="form-select" id="interestedIn" required>
+                        <option value="" disabled selected>Select Category</option>
+                        <option value="Mutual Funds">Mutual Funds</option>
+                        <option value="SIP Investment">SIP Investment</option>
+                        <option value="STP">STP</option>
+                        <option value="SWP">SWP</option>
+                        <option value="Health Insurance">Health Insurance</option>
+                        <option value="Life Insurance">Life Insurance</option>
+                        <option value="Term Insurance">Term Insurance</option>
+                        <option value="Child Education Planning">Child Education Planning</option>
+                        <option value="Marriage Goal Planning">Marriage Goal Planning</option>
+                        <option value="Retirement Planning">Retirement Planning</option>
+                        <option value="Tax Saving (ELSS)">Tax Saving (ELSS)</option>
+                        <option value="Financial Planning">Financial Planning</option>
+                        <option value="Wealth Management">Wealth Management</option>
+                        <option value="Portfolio Review">Portfolio Review</option>
+                        <option value="Fixed Deposits">Fixed Deposits</option>
+                        <option value="Bonds">Bonds</option>
+                        <option value="Loan Against Mutual Funds">Loan Against Mutual Funds</option>
+                        <option value="General Insurance">General Insurance</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <div class="invalid-feedback">Please select a service.</div>
+                </div>
+
+                <!-- Message -->
+                <div class="mb-4">
+                    <label class="form-label" for="userMessage">Message (Optional)</label>
+                    <textarea class="form-control" id="userMessage" rows="3" placeholder="Write additional requirements here..."></textarea>
+                </div>
+
+                <!-- Gradient Submit Button -->
+                <button type="submit" class="btn btn-whatsapp-submit">
+                    <i class="fa-brands fa-whatsapp"></i> BOOK FREE CONSULTATION
+                </button>
+
+                <div class="footer-note">
+                    <i class="fa-solid fa-shield-halved text-success me-1"></i> Your Information is 100% Safe & Secure.
+                </div>
+
+            </form>
         </div>
     </div>
 
-    <!-- Main Content Area -->
-    <div class="container my-4 my-lg-5">
-        <div class="row g-4 g-lg-5 align-items-start">
-            
-            <!-- Left Side: Copy & Services (Stacks below form on mobile if standard layout, but structured beautifully) -->
-            <div class="col-lg-6 order-2 order-lg-1">
-                <div class="pe-lg-3">
-                    <h2 class="headline display-6 mb-3">Book Your Free Financial Consultation</h2>
-                    <p class="sub-headline mb-4">Get expert financial guidance tailored specifically for your life-milestones and investment goals.</p>
-
-                    <!-- Premium Highlight Box -->
-                    <div class="trust-box p-3 mb-4 d-flex justify-content-around flex-wrap gap-2 text-center">
-                        <div class="trust-item d-flex align-items-center gap-2">
-                            <i class="fa-solid fa-circle-check"></i> 100% FREE Consultation
-                        </div>
-                        <div class="trust-item d-flex align-items-center gap-2">
-                            <i class="fa-solid fa-circle-check"></i> No Hidden Charges
-                        </div>
-                        <div class="trust-item d-flex align-items-center gap-2">
-                            <i class="fa-solid fa-circle-check"></i> Personalized Advice
-                        </div>
-                    </div>
-
-                    <!-- Services Grid -->
-                    <h5 class="fw-bold mb-3 text-secondary">Our Financial Advisory Services</h5>
-                    <div class="row row-cols-1 row-cols-sm-2 g-2">
-                        <!-- Service item start -->
-                        <div class="col">
-                            <div class="service-item d-flex align-items-center p-2.5 px-3 py-2">
-                                <div class="service-icon-box d-flex align-items-center justify-content-center me-3"><i class="fa-solid fa-chart-pie"></i></div>
-                                <span class="service-name">Mutual Funds</span>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="service-item d-flex align-items-center p-2.5 px-3 py-2">
-                                <div class="service-icon-box d-flex align-items-center justify-content-center me-3"><i class="fa-solid fa-calendar-check"></i></div>
-                                <span class="service-name">SIP Investment</span>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="service-item d-flex align-items-center p-2.5 px-3 py-2">
-                                <div class="service-icon-box d-flex align-items-center justify-content-center me-3"><i class="fa-solid fa-arrows-rotate"></i></div>
-                                <span class="service-name">STP / SWP</span>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="service-item d-flex align-items-center p-2.5 px-3 py-2">
-                                <div class="service-icon-box d-flex align-items-center justify-content-center me-3"><i class="fa-solid fa-heart-pulse"></i></div>
-                                <span class="service-name">Health Insurance</span>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="service-item d-flex align-items-center p-2.5 px-3 py-2">
-                                <div class="service-icon-box d-flex align-items-center justify-content-center me-3"><i class="fa-solid fa-hands-holding"></i></div>
-                                <span class="service-name">Life Insurance</span>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="service-item d-flex align-items-center p-2.5 px-3 py-2">
-                                <div class="service-icon-box d-flex align-items-center justify-content-center me-3"><i class="fa-solid fa-shield-halved"></i></div>
-                                <span class="service-name">Term Insurance</span>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="service-item d-flex align-items-center p-2.5 px-3 py-2">
-                                <div class="service-icon-box d-flex align-items-center justify-content-center me-3"><i class="fa-solid fa-graduation-cap"></i></div>
-                                <span class="service-name">Child Education Planning</span>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="service-item d-flex align-items-center p-2.5 px-3 py-2">
-                                <div class="service-icon-box d-flex align-items-center justify-content-center me-3"><i class="fa-solid fa-gem"></i></div>
-                                <span class="service-name">Marriage Goal Planning</span>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="service-item d-flex align-items-center p-2.5 px-3 py-2">
-                                <div class="service-icon-box d-flex align-items-center justify-content-center me-3"><i class="fa-solid fa-couch"></i></div>
-                                <span class="service-name">Retirement Planning</span>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="service-item d-flex align-items-center p-2.5 px-3 py-2">
-                                <div class="service-icon-box d-flex align-items-center justify-content-center me-3"><i class="fa-solid fa-piggy-bank"></i></div>
-                                <span class="service-name">Tax Saving (ELSS)</span>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="service-item d-flex align-items-center p-2.5 px-3 py-2">
-                                <div class="service-icon-box d-flex align-items-center justify-content-center me-3"><i class="fa-solid fa-vault"></i></div>
-                                <span class="service-name">Wealth Management</span>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="service-item d-flex align-items-center p-2.5 px-3 py-2">
-                                <div class="service-icon-box d-flex align-items-center justify-content-center me-3"><i class="fa-solid fa-chart-line"></i></div>
-                                <span class="service-name">Portfolio Review</span>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="service-item d-flex align-items-center p-2.5 px-3 py-2">
-                                <div class="service-icon-box d-flex align-items-center justify-content-center me-3"><i class="fa-solid fa-wallet"></i></div>
-                                <span class="service-name">Fixed Deposits</span>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="service-item d-flex align-items-center p-2.5 px-3 py-2">
-                                <div class="service-icon-box d-flex align-items-center justify-content-center me-3"><i class="fa-solid fa-file-invoice-dollar"></i></div>
-                                <span class="service-name">Bonds</span>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="service-item d-flex align-items-center p-2.5 px-3 py-2">
-                                <div class="service-icon-box d-flex align-items-center justify-content-center me-3"><i class="fa-solid fa-hand-holding-dollar"></i></div>
-                                <span class="service-name">Loan Against Mutual Funds</span>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="service-item d-flex align-items-center p-2.5 px-3 py-2">
-                                <div class="service-icon-box d-flex align-items-center justify-content-center me-3"><i class="fa-solid fa-folder-open"></i></div>
-                                <span class="service-name">General Insurance</span>
-                            </div>
-                        </div>
-                        <!-- Service item end -->
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right Side: Enquiry Form in Premium Glassmorphism Card -->
-            <div class="col-lg-6 order-1 order-lg-2">
-                <div class="glass-card p-4 p-lg-5">
-                    
-                    <!-- Main Form Container -->
-                    <div id="form-card-body">
-                        <div class="mb-4">
-                            <h4 class="fw-bold mb-1" style="color: var(--primary-color);">Enquire Now</h4>
-                            <p class="text-muted small mb-0">Fill out your details to coordinate with our financial advisors.</p>
-                        </div>
-
-                        <form id="enquiryForm" class="needs-validation" novalidate>
-                            
-                            <!-- Full Name -->
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="fullName" placeholder="Full Name" required autocomplete="name">
-                                <label for="fullName"><i class="fa-regular fa-user me-2"></i>Full Name</label>
-                                <div class="invalid-feedback">Please enter your full name.</div>
-                            </div>
-
-                            <!-- Mobile Number -->
-                            <div class="form-floating mb-3">
-                                <input type="tel" class="form-control" id="mobileNumber" placeholder="Mobile Number" pattern="[6-9][0-9]{9}" required autocomplete="tel">
-                                <label for="mobileNumber"><i class="fa-solid fa-mobile-screen-button me-2"></i>Mobile Number</label>
-                                <div class="invalid-feedback">Please enter a valid 10-digit mobile number.</div>
-                            </div>
-
-                            <!-- Email Address -->
-                            <div class="form-floating mb-3">
-                                <input type="email" class="form-control" id="emailAddress" placeholder="Email Address" required autocomplete="email">
-                                <label for="emailAddress"><i class="fa-regular fa-envelope me-2"></i>Email Address</label>
-                                <div class="invalid-feedback">Please enter a valid email address.</div>
-                            </div>
-
-                            <!-- City -->
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="cityName" placeholder="City" required autocomplete="address-level2">
-                                <label for="cityName"><i class="fa-solid fa-location-dot me-2"></i>City</label>
-                                <div class="invalid-feedback">Please enter your city.</div>
-                            </div>
-
-                            <!-- Investment Amount (Dropdown) -->
-                            <div class="form-floating mb-3">
-                                <select class="form-select" id="investmentAmount" required aria-label="Investment Amount">
-                                    <option value="" selected disabled>Select expected investment amount</option>
-                                    <option value="Below ₹50,000">Below ₹50,000</option>
-                                    <option value="₹50,000 – ₹1 Lakh">₹50,000 – ₹1 Lakh</option>
-                                    <option value="₹1 – ₹5 Lakh">₹1 – ₹5 Lakh</option>
-                                    <option value="₹5 – ₹10 Lakh">₹5 – ₹10 Lakh</option>
-                                    <option value="₹10 – ₹25 Lakh">₹10 – ₹25 Lakh</option>
-                                    <option value="Above ₹25 Lakh">Above ₹25 Lakh</option>
-                                </select>
-                                <label for="investmentAmount"><i class="fa-solid fa-indian-rupee-sign me-2"></i>Investment Amount</label>
-                                <div class="invalid-feedback">Please select an investment range.</div>
-                            </div>
-
-                            <!-- Interested In (Dropdown) -->
-                            <div class="form-floating mb-3">
-                                <select class="form-select" id="interestedIn" required aria-label="Interested In">
-                                    <option value="" selected disabled>Select preferred financial service</option>
-                                    <option value="Mutual Funds">Mutual Funds</option>
-                                    <option value="SIP Investment">SIP Investment</option>
-                                    <option value="STP">STP</option>
-                                    <option value="SWP">SWP</option>
-                                    <option value="Health Insurance">Health Insurance</option>
-                                    <option value="Life Insurance">Life Insurance</option>
-                                    <option value="Term Insurance">Term Insurance</option>
-                                    <option value="Child Education Planning">Child Education Planning</option>
-                                    <option value="Marriage Goal Planning">Marriage Goal Planning</option>
-                                    <option value="Retirement Planning">Retirement Planning</option>
-                                    <option value="Tax Saving (ELSS)">Tax Saving (ELSS)</option>
-                                    <option value="Financial Planning">Financial Planning</option>
-                                    <option value="Wealth Management">Wealth Management</option>
-                                    <option value="Portfolio Review">Portfolio Review</option>
-                                    <option value="Fixed Deposits">Fixed Deposits</option>
-                                    <option value="Bonds">Bonds</option>
-                                    <option value="Loan Against Mutual Funds">Loan Against Mutual Funds</option>
-                                    <option value="General Insurance">General Insurance</option>
-                                    <option value="Other">Other</option>
-                                </select>
-                                <label for="interestedIn"><i class="fa-solid fa-handshake me-2"></i>Interested In</label>
-                                <div class="invalid-feedback">Please select a service of interest.</div>
-                            </div>
-
-                            <!-- Message -->
-                            <div class="form-floating mb-4">
-                                <textarea class="form-control" id="userMessage" placeholder="Your Message" style="height: 100px;"></textarea>
-                                <label for="userMessage"><i class="fa-regular fa-comment-dots me-2"></i>Message (Optional)</label>
-                            </div>
-
-                            <!-- Large Gradient Button -->
-                            <button type="submit" class="btn btn-gradient w-100 d-flex align-items-center justify-content-center gap-2 mb-3">
-                                <span>BOOK FREE CONSULTATION</span>
-                                <i class="fa-solid fa-arrow-right"></i>
-                            </button>
-
-                            <!-- Security Badge -->
-                            <div class="text-center">
-                                <span class="security-text">
-                                    <i class="fa-solid fa-lock text-success me-1"></i> Your Information is 100% Safe & Secure.
-                                </span>
-                            </div>
-
-                        </form>
-                    </div>
-
-                    <!-- Post-Submission Interactive State -->
-                    <div id="success-state" class="success-wrapper">
-                        <div class="success-icon-wrapper">
-                            <i class="fa-solid fa-check"></i>
-                        </div>
-                        <h4 class="fw-bold mb-2 text-dark">Thank You!</h4>
-                        <p class="text-muted px-lg-3">Your financial consultation request has been securely registered. Our certified advisor will contact you within one business day.</p>
-                        <button type="button" class="btn btn-outline-secondary btn-sm mt-3 px-4" onclick="resetFormCard()">
-                            Submit New Inquiry
-                        </button>
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- Mobile Dynamic Sticky Action Bar -->
-    <div class="sticky-action-bar mobile-action-bar gap-2">
-        <a href="https://wa.me/919876543210?text=Hello%20Desai%20Investments%2C%20I%20would%20like%20to%20know%20more%20about%20your%20financial%20consultation." 
-           class="btn btn-mobile-whatsapp flex-grow-1 d-flex align-items-center justify-content-center gap-2" 
-           target="_blank" 
-           rel="noopener">
-            <i class="fa-brands fa-whatsapp fs-5"></i> WhatsApp
+    <!-- Sticky action buttons on mobile (Calling & WhatsApp options) -->
+    <div class="sticky-bar">
+        <a href="https://wa.me/919428129291?text=Hello%20Desai%20Investments%2C%20I%20want%20to%20enquire%20about%20your%20services." 
+           class="btn-whatsapp-green" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> Chat WhatsApp
         </a>
-        <a href="tel:+919876543210" 
-           class="btn btn-mobile-call flex-grow-1 d-flex align-items-center justify-content-center gap-2">
-            <i class="fa-solid fa-phone fs-5"></i> Call Us
+        <a href="tel:+919428129291" class="btn-call-purple">
+            <i class="fa-solid fa-phone"></i> Call Advisor
         </a>
     </div>
 
-    <!-- Bootstrap 5 Bundle JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6Rz83916wY5qON33rHeTC533L0O379/LD3xz9i9d872v3QN3HNm/5cd3eG5LD73" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        // Form Validation & Interface Dynamics
+        // Form Validation and WhatsApp Redirection
         (() => {
             'use strict';
-            const form = document.getElementById('enquiryForm');
-            
+            const form = document.getElementById('whatsappForm');
+
             form.addEventListener('submit', event => {
                 if (!form.checkValidity()) {
                     event.preventDefault();
                     event.stopPropagation();
                     form.classList.add('was-validated');
                 } else {
-                    event.preventDefault(); // Stop page reload for dynamic API integration mock
-                    
-                    // Transition to successful visual outcome state
-                    document.getElementById('form-card-body').style.display = 'none';
-                    const successDiv = document.getElementById('success-state');
-                    successDiv.style.display = 'block';
-                    successDiv.classList.add('animate__animated', 'animate__fadeIn');
+                    event.preventDefault();
+
+                    // Values gathering
+                    const name = document.getElementById('fullName').value.trim();
+                    const mobile = document.getElementById('mobileNumber').value.trim();
+                    const email = document.getElementById('emailAddress').value.trim();
+                    const city = document.getElementById('cityName').value.trim();
+                    const amount = document.getElementById('investmentAmount').value;
+                    const service = document.getElementById('interestedIn').value;
+                    const message = document.getElementById('userMessage').value.trim() || 'No additional message';
+
+                    // Destination WhatsApp Number
+                    const whatsappPhone = '919428129291'; 
+
+                    // Message string format with clean emojis
+                    let waText = `*New Lead - Desai Investments*\n`;
+                    waText += `------------------------------------\n`;
+                    waText += `👤 *Name:* ${name}\n`;
+                    waText += `📱 *Mobile:* ${mobile}\n`;
+                    waText += `✉️ *Email:* ${email}\n`;
+                    waText += `📍 *City:* ${city}\n`;
+                    waText += `💰 *Investment:* ${amount}\n`;
+                    waText += `💼 *Interested In:* ${service}\n`;
+                    waText += `💬 *Message:* ${message}\n`;
+                    waText += `------------------------------------\n`;
+                    waText += `_Submitted via Enquiry Lead Form_`;
+
+                    // Message URL Encoding
+                    const encodedMessage = encodeURIComponent(waText);
+                    const whatsappURL = `https://api.whatsapp.com/send?phone=${whatsappPhone}&text=${encodedMessage}`;
+
+                    // Redirecting to WhatsApp
+                    window.open(whatsappURL, '_blank');
                 }
             }, false);
         })();
-
-        // Function to return to fresh form view
-        function resetFormCard() {
-            const form = document.getElementById('enquiryForm');
-            form.reset();
-            form.classList.remove('was-validated');
-            document.getElementById('success-state').style.display = 'none';
-            document.getElementById('form-card-body').style.display = 'block';
-        }
     </script>
 </body>
 </html>
