@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desai Investments - WhatsApp Enquiry Form</title>
+    <title>Desai Investments - Premium Advisory Enquiry</title>
     
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -18,345 +18,498 @@
 
     <style>
         :root {
-            --primary-color: #A61E63;
-            --secondary-color: #D63384;
-            --whatsapp-green: #25D366;
-            --body-bg: #f5f7fb;
-            --text-dark: #2c3e50;
+            --primary-brand: #8E1B4F; /* आपके बैनर का डीप मैरून कलर */
+            --secondary-brand: #D63384; 
+            --accent-gold: #F3C010; /* बैनर का गोल्ड कलर */
+            --bg-light: #F9F6F8;
+            --text-dark: #1E293B;
+            --text-muted: #64748B;
         }
 
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: var(--body-bg);
-            background-image: radial-gradient(circle at 50% 50%, rgba(166, 30, 99, 0.03) 0%, rgba(255, 255, 255, 0) 100%);
+            background-color: var(--bg-light);
+            background-image: radial-gradient(circle at 10% 20%, rgba(142, 27, 79, 0.02) 0%, rgba(255, 255, 255, 1) 90%);
             color: var(--text-dark);
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px 10px;
+            padding: 30px 12px;
         }
 
-        /* Form Wrapper Card with Glassmorphism */
-        .enquiry-card {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.7);
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(166, 30, 99, 0.08);
+        /* Highly Professional Main Container */
+        .premium-container {
             width: 100%;
-            max-width: 550px;
+            max-width: 650px;
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 20px 50px rgba(142, 27, 79, 0.08);
+            border: 1px solid rgba(142, 27, 79, 0.08);
             overflow: hidden;
-            transition: transform 0.3s ease;
         }
 
-        /* Banner styling inside the card */
-        .card-banner {
+        /* Banner Design */
+        .banner-box {
             position: relative;
             width: 100%;
-            height: 140px;
+            max-height: 250px;
             overflow: hidden;
-            background-color: var(--primary-color);
+            border-bottom: 4px solid var(--primary-brand);
         }
 
-        .card-banner img {
+        .banner-box img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: auto;
+            display: block;
         }
 
-        .banner-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(166, 30, 99, 0.85) 0%, rgba(214, 51, 132, 0.5) 100%);
+        /* Branding Header Card */
+        .branding-header {
+            background: linear-gradient(to right, #ffffff, #FCF8FA);
+            padding: 20px 25px;
+            border-bottom: 1px solid #F1E5EC;
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
 
-        .banner-text {
-            position: absolute;
-            bottom: 15px;
-            left: 20px;
-            right: 20px;
-            color: #ffffff;
-            z-index: 2;
+        .brand-logo {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
         }
 
-        .banner-text h3 {
-            font-size: 1.4rem;
+        .brand-info h4 {
+            font-size: 1.25rem;
             font-weight: 700;
+            color: var(--primary-brand);
             margin-bottom: 2px;
-            letter-spacing: -0.5px;
+            letter-spacing: -0.3px;
         }
 
-        .banner-text p {
+        .brand-info span {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            display: block;
+        }
+
+        /* Section Separator */
+        .form-section-title {
             font-size: 0.85rem;
-            opacity: 0.9;
-            margin-bottom: 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--primary-brand);
+            font-weight: 700;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        /* Form styling */
-        .card-body {
-            padding: 25px 20px;
+        .form-section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background-color: #E2E8F0;
         }
 
+        /* Premium Form Elements */
         .form-label {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 600;
-            color: var(--text-dark);
+            color: #475569;
             margin-bottom: 6px;
         }
 
-        /* Custom Input Height and styling (55px) */
+        /* Responsive Input Controls (55px height) */
+        .input-group-text {
+            background-color: #F8FAFC;
+            border: 1.5px solid #CBD5E1;
+            border-right: none;
+            color: var(--primary-brand);
+            border-radius: 12px 0 0 12px;
+            width: 48px;
+            justify-content: center;
+        }
+
         .form-control, .form-select {
             height: 55px;
-            border-radius: 10px;
-            border: 1.5px solid #e2e8f0;
+            border-radius: 12px;
+            border: 1.5px solid #CBD5E1;
             font-size: 0.95rem;
-            padding-left: 15px;
-            transition: all 0.25s ease;
-            background-color: #ffffff;
+            color: var(--text-dark);
+            transition: all 0.2s ease;
+        }
+
+        .input-group > .form-control, .input-group > .form-select {
+            border-radius: 0 12px 12px 0;
         }
 
         .form-control:focus, .form-select:focus {
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 4px rgba(166, 30, 99, 0.1);
-            outline: none;
+            border-color: var(--primary-brand);
+            box-shadow: 0 0 0 4px rgba(142, 27, 79, 0.08);
         }
 
         textarea.form-control {
-            height: auto;
+            height: auto !important;
+            border-radius: 12px !important;
             padding-top: 12px;
         }
 
-        /* Send WhatsApp Button */
-        .btn-whatsapp-submit {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            color: #ffffff;
-            font-size: 1rem;
-            font-weight: 600;
-            height: 55px;
-            border: none;
+        /* Customized Radio Badges for Calling Time */
+        .time-badge-container {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .time-badge {
+            flex: 1;
+            min-width: 100px;
+        }
+
+        .time-badge input[type="radio"] {
+            display: none;
+        }
+
+        .time-badge label {
+            display: block;
+            text-align: center;
+            padding: 12px;
+            border: 1.5px solid #CBD5E1;
             border-radius: 10px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            background-color: #ffffff;
+        }
+
+        .time-badge input[type="radio"]:checked + label {
+            background-color: rgba(142, 27, 79, 0.06);
+            border-color: var(--primary-brand);
+            color: var(--primary-brand);
+            font-weight: 600;
+        }
+
+        /* Action Submit Button (Corporate WhatsApp) */
+        .btn-corporate-submit {
+            background: linear-gradient(135deg, var(--primary-brand) 0%, var(--secondary-brand) 100%);
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 1rem;
+            height: 58px;
+            border: none;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(166, 30, 99, 0.2);
+            box-shadow: 0 6px 20px rgba(142, 27, 79, 0.25);
             width: 100%;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .btn-whatsapp-submit:hover {
+        .btn-corporate-submit:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(166, 30, 99, 0.3);
+            box-shadow: 0 8px 25px rgba(142, 27, 79, 0.35);
             color: #ffffff;
-            opacity: 0.95;
         }
 
-        .btn-whatsapp-submit:active {
-            transform: translateY(1px);
+        /* Trust Badges section matching your banner points */
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            background: #FDFBFD;
+            border: 1px solid #F1E5EC;
+            border-radius: 14px;
+            padding: 15px;
+            margin-top: 25px;
         }
 
-        .btn-whatsapp-submit i {
-            font-size: 1.25rem;
+        .trust-badge-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #475569;
         }
 
-        .footer-note {
-            font-size: 0.8rem;
-            color: #718096;
+        .trust-badge-item i {
+            color: var(--primary-brand);
+            font-size: 1rem;
+        }
+
+        /* Muted Corporate Disclaimer */
+        .regulatory-disclaimer {
+            font-size: 0.7rem;
+            color: #94A3B8;
             text-align: center;
-            margin-top: 15px;
+            line-height: 1.4;
+            border-top: 1px solid #E2E8F0;
+            padding-top: 15px;
+            margin-top: 25px;
         }
 
-        /* Floating action buttons for mobile */
-        .sticky-bar {
+        /* Mobile Sticky CTA */
+        .sticky-footer {
             position: fixed;
             bottom: 0;
             left: 0;
             right: 0;
             background: #ffffff;
-            box-shadow: 0 -4px 10px rgba(0,0,0,0.06);
-            padding: 10px 15px;
+            border-top: 1px solid #E2E8F0;
+            padding: 12px 16px;
             z-index: 1000;
             display: none;
+            gap: 10px;
+        }
+
+        .btn-sticky-action {
+            flex: 1;
+            height: 48px;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .sticky-whatsapp {
+            background-color: #25D366;
+            color: #ffffff;
+        }
+
+        .sticky-call {
+            background-color: var(--primary-brand);
+            color: #ffffff;
         }
 
         @media (max-width: 767.98px) {
             body {
-                padding-bottom: 80px; /* spacing for sticky bar */
+                padding-bottom: 85px;
             }
-            .sticky-bar {
+            .sticky-footer {
                 display: flex;
-                gap: 10px;
             }
-            .enquiry-card {
-                border-radius: 15px;
+            .trust-grid {
+                grid-template-columns: 1fr;
             }
-        }
-
-        /* Custom green button style for secondary callouts */
-        .btn-whatsapp-green {
-            background-color: var(--whatsapp-green);
-            color: #ffffff;
-            border-radius: 8px;
-            font-weight: 600;
-            border: none;
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 12px;
-            text-decoration: none;
-            font-size: 0.9rem;
-        }
-
-        .btn-call-purple {
-            background-color: var(--primary-color);
-            color: #ffffff;
-            border-radius: 8px;
-            font-weight: 600;
-            border: none;
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 12px;
-            text-decoration: none;
-            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
 
-    <div class="enquiry-card">
-        <!-- Top Corporate Banner -->
-        <div class="card-banner">
-            <!-- default dynamic finance image as fallback if banner.jpg is missing -->
-            <img src="banner.jpg" alt="Desai Investments" onerror="this.src='https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80';">
-            <div class="banner-overlay"></div>
-            <div class="banner-text">
-                <h3>Desai Investments</h3>
-                <p>Book Your Free Financial Consultation</p>
+    <div class="premium-container">
+        
+        <!-- Premium Corporate Banner (Loads "Banner.png" automatically) -->
+        <div class="banner-box">
+            <img src="Banner.png" alt="Desai Investments Banner" onerror="this.src='https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=800&q=80';">
+        </div>
+
+        <!-- Corporate Branding Row (Loads "logo.png" automatically) -->
+        <div class="branding-header">
+            <img src="logo.png" class="brand-logo" alt="Desai Investments Logo" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=150&q=80';">
+            <div class="brand-info">
+                <h4>DESAI INVESTMENTS</h4>
+                <span>AMFI Registered Mutual Funds Distributor</span>
             </div>
         </div>
 
-        <div class="card-body">
-            <form id="whatsappForm" class="needs-validation" novalidate>
+        <div class="card-body p-4">
+            <form id="corporateLeadForm" class="needs-validation" novalidate>
                 
-                <!-- Full Name -->
-                <div class="mb-3">
-                    <label class="form-label" for="fullName">Full Name</label>
-                    <input type="text" class="form-control" id="fullName" placeholder="Enter your full name" required>
-                    <div class="invalid-feedback">Please enter your name.</div>
+                <!-- SECTION 1: Personal Profile -->
+                <div class="form-section-title">
+                    <i class="fa-solid fa-user-tie"></i> Personal Profile
                 </div>
 
-                <!-- Mobile Number -->
-                <div class="mb-3">
-                    <label class="form-label" for="mobileNumber">Mobile Number</label>
-                    <input type="tel" class="form-control" id="mobileNumber" placeholder="Enter 10-digit mobile number" pattern="[6-9][0-9]{9}" required>
-                    <div class="invalid-feedback">Please enter a valid 10-digit mobile number.</div>
+                <div class="row g-3 mb-4">
+                    <!-- Full Name -->
+                    <div class="col-md-8">
+                        <label class="form-label" for="fullName">Your Full Name</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fa-regular fa-user"></i></span>
+                            <input type="text" class="form-control" id="fullName" placeholder="Enter Full Name" required>
+                            <div class="invalid-feedback">Please enter your name.</div>
+                        </div>
+                    </div>
+
+                    <!-- Age Field -->
+                    <div class="col-md-4">
+                        <label class="form-label" for="userAge">Age (उम्र)</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fa-solid fa-cake-candles"></i></span>
+                            <input type="number" class="form-control" id="userAge" min="18" max="100" placeholder="Years" required>
+                            <div class="invalid-feedback">Enter valid age (18+).</div>
+                        </div>
+                    </div>
+
+                    <!-- Mobile Number -->
+                    <div class="col-md-6">
+                        <label class="form-label" for="mobileNumber">Mobile Number</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fa-solid fa-phone"></i></span>
+                            <input type="tel" class="form-control" id="mobileNumber" placeholder="10-Digit Mobile" pattern="[6-9][0-9]{9}" required>
+                            <div class="invalid-feedback">Enter valid mobile number.</div>
+                        </div>
+                    </div>
+
+                    <!-- Email Address -->
+                    <div class="col-md-6">
+                        <label class="form-label" for="emailAddress">Email Address</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fa-regular fa-envelope"></i></span>
+                            <input type="email" class="form-control" id="emailAddress" placeholder="name@domain.com" required>
+                            <div class="invalid-feedback">Enter valid email.</div>
+                        </div>
+                    </div>
+
+                    <!-- City -->
+                    <div class="col-12">
+                        <label class="form-label" for="cityName">City</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fa-solid fa-location-dot"></i></span>
+                            <input type="text" class="form-control" id="cityName" placeholder="Enter your current city" required>
+                            <div class="invalid-feedback">Please enter your city.</div>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Email Address -->
-                <div class="mb-3">
-                    <label class="form-label" for="emailAddress">Email Address</label>
-                    <input type="email" class="form-control" id="emailAddress" placeholder="name@domain.com" required>
-                    <div class="invalid-feedback">Please enter a valid email address.</div>
+                <!-- SECTION 2: Investment Preferences -->
+                <div class="form-section-title">
+                    <i class="fa-solid fa-chart-line"></i> Investment Goals
                 </div>
 
-                <!-- City -->
-                <div class="mb-3">
-                    <label class="form-label" for="cityName">City</label>
-                    <input type="text" class="form-control" id="cityName" placeholder="Your city" required>
-                    <div class="invalid-feedback">Please enter your city.</div>
+                <div class="row g-3 mb-4">
+                    <!-- Interested In -->
+                    <div class="col-md-6">
+                        <label class="form-label" for="interestedIn">Select Service Category</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fa-solid fa-handshake"></i></span>
+                            <select class="form-select" id="interestedIn" required>
+                                <option value="" disabled selected>Choose category</option>
+                                <option value="Mutual Funds">Mutual Funds</option>
+                                <option value="SIP Investment">SIP / STP / SWP</option>
+                                <option value="Health Insurance">Health Insurance</option>
+                                <option value="Life Insurance">Life Insurance</option>
+                                <option value="Term Insurance">Term Insurance</option>
+                                <option value="Retirement Goal">Retirement Goal Planning</option>
+                                <option value="Child Education & Marriage">Child Education & Marriage Goal</option>
+                                <option value="Other Goal Based Investment">Other Goal Based Investment</option>
+                                <option value="Overdraft / Loan Against MF">Overdraft / Loan Against Mutual Funds</option>
+                                <option value="Fixed Deposits & Bonds">Fixed Deposits & Bonds</option>
+                            </select>
+                            <div class="invalid-feedback">Please select a service category.</div>
+                        </div>
+                    </div>
+
+                    <!-- Investment Amount -->
+                    <div class="col-md-6">
+                        <label class="form-label" for="investmentAmount">Target Investment Range</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fa-solid fa-indian-rupee-sign"></i></span>
+                            <select class="form-select" id="investmentAmount" required>
+                                <option value="" disabled selected>Expected allocation</option>
+                                <option value="Below ₹50,000">Below ₹50,000</option>
+                                <option value="₹50,000 – ₹1 Lakh">₹50,000 – ₹1 Lakh</option>
+                                <option value="₹1 – ₹5 Lakh">₹1 – ₹5 Lakh</option>
+                                <option value="₹5 – ₹10 Lakh">₹5 – ₹10 Lakh</option>
+                                <option value="₹10 – ₹25 Lakh">₹10 – ₹25 Lakh</option>
+                                <option value="Above ₹25 Lakh">Above ₹25 Lakh</option>
+                            </select>
+                            <div class="invalid-feedback">Please select an investment range.</div>
+                        </div>
+                    </div>
+
+                    <!-- Preferred Calling Time (Highly Useful Add-on) -->
+                    <div class="col-12">
+                        <label class="form-label d-block">Preferred Time to Call back</label>
+                        <div class="time-badge-container">
+                            <div class="time-badge">
+                                <input type="radio" name="callTime" id="timeAny" value="Anytime" checked>
+                                <label for="timeAny"><i class="fa-regular fa-clock me-1"></i> Anytime</label>
+                            </div>
+                            <div class="time-badge">
+                                <input type="radio" name="callTime" id="timeMorning" value="Morning (10 AM - 1 PM)">
+                                <label for="timeMorning">Morning</label>
+                            </div>
+                            <div class="time-badge">
+                                <input type="radio" name="callTime" id="timeEvening" value="Evening (4 PM - 7 PM)">
+                                <label for="timeEvening">Evening</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Additional Message -->
+                    <div class="col-12">
+                        <label class="form-label" for="userMessage">Additional Requirements (Optional)</label>
+                        <textarea class="form-control" id="userMessage" rows="2" placeholder="Tell us about your specific goals..."></textarea>
+                    </div>
                 </div>
 
-                <!-- Investment Amount Dropdown -->
-                <div class="mb-3">
-                    <label class="form-label" for="investmentAmount">Investment Amount</label>
-                    <select class="form-select" id="investmentAmount" required>
-                        <option value="" disabled selected>Select Investment Range</option>
-                        <option value="Below ₹50,000">Below ₹50,000</option>
-                        <option value="₹50,000 – ₹1 Lakh">₹50,000 – ₹1 Lakh</option>
-                        <option value="₹1 – ₹5 Lakh">₹1 – ₹5 Lakh</option>
-                        <option value="₹5 – ₹10 Lakh">₹5 – ₹10 Lakh</option>
-                        <option value="₹10 – ₹25 Lakh">₹10 – ₹25 Lakh</option>
-                        <option value="Above ₹25 Lakh">Above ₹25 Lakh</option>
-                    </select>
-                    <div class="invalid-feedback">Please select an investment amount.</div>
-                </div>
-
-                <!-- Interested In Dropdown -->
-                <div class="mb-3">
-                    <label class="form-label" for="interestedIn">Interested In</label>
-                    <select class="form-select" id="interestedIn" required>
-                        <option value="" disabled selected>Select Category</option>
-                        <option value="Mutual Funds">Mutual Funds</option>
-                        <option value="SIP Investment">SIP Investment</option>
-                        <option value="STP">STP</option>
-                        <option value="SWP">SWP</option>
-                        <option value="Health Insurance">Health Insurance</option>
-                        <option value="Life Insurance">Life Insurance</option>
-                        <option value="Term Insurance">Term Insurance</option>
-                        <option value="Child Education Planning">Child Education Planning</option>
-                        <option value="Marriage Goal Planning">Marriage Goal Planning</option>
-                        <option value="Retirement Planning">Retirement Planning</option>
-                        <option value="Tax Saving (ELSS)">Tax Saving (ELSS)</option>
-                        <option value="Financial Planning">Financial Planning</option>
-                        <option value="Wealth Management">Wealth Management</option>
-                        <option value="Portfolio Review">Portfolio Review</option>
-                        <option value="Fixed Deposits">Fixed Deposits</option>
-                        <option value="Bonds">Bonds</option>
-                        <option value="Loan Against Mutual Funds">Loan Against Mutual Funds</option>
-                        <option value="General Insurance">General Insurance</option>
-                        <option value="Other">Other</option>
-                    </select>
-                    <div class="invalid-feedback">Please select a service.</div>
-                </div>
-
-                <!-- Message -->
-                <div class="mb-4">
-                    <label class="form-label" for="userMessage">Message (Optional)</label>
-                    <textarea class="form-control" id="userMessage" rows="3" placeholder="Write additional requirements here..."></textarea>
-                </div>
-
-                <!-- Gradient Submit Button -->
-                <button type="submit" class="btn btn-whatsapp-submit">
-                    <i class="fa-brands fa-whatsapp"></i> BOOK FREE CONSULTATION
+                <!-- Submit Trigger -->
+                <button type="submit" class="btn btn-corporate-submit">
+                    <i class="fa-brands fa-whatsapp fs-5"></i> Submit & Consultation via WhatsApp
                 </button>
 
-                <div class="footer-note">
-                    <i class="fa-solid fa-shield-halved text-success me-1"></i> Your Information is 100% Safe & Secure.
+                <!-- Professional Trust Badges grid matching banner -->
+                <div class="trust-grid">
+                    <div class="trust-badge-item">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span>AMFI REGISTERED DISTRIBUTOR</span>
+                    </div>
+                    <div class="trust-badge-item">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span>TRANSPARENT PROCESS</span>
+                    </div>
+                    <div class="trust-badge-item">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span>CUSTOMER FOCUSED APPROACH</span>
+                    </div>
+                    <div class="trust-badge-item">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span>TRUST & CONFIDENTIALITY</span>
+                    </div>
+                </div>
+
+                <!-- Regulatory Disclaimer directly copied from banner -->
+                <div class="regulatory-disclaimer">
+                    Mutual Fund Investments are subject to market risks. Read all scheme-related documents carefully before investing.
                 </div>
 
             </form>
         </div>
     </div>
 
-    <!-- Sticky action buttons on mobile (Calling & WhatsApp options) -->
-    <div class="sticky-bar">
-        <a href="https://wa.me/919428129291?text=Hello%20Desai%20Investments%2C%20I%20want%20to%20enquire%20about%20your%20services." 
-           class="btn-whatsapp-green" target="_blank">
-            <i class="fa-brands fa-whatsapp"></i> Chat WhatsApp
+    <!-- Mobile Dynamic Sticky Action Panel -->
+    <div class="sticky-footer">
+        <a href="https://wa.me/919428129291?text=Hello%20Desai%20Investments%2C%20I%20am%20interested%20in%20your%20financial%20services." 
+           class="btn-sticky-action sticky-whatsapp" target="_blank">
+            <i class="fa-brands fa-whatsapp fs-5"></i> Chat on WhatsApp
         </a>
-        <a href="tel:+919428129291" class="btn-call-purple">
-            <i class="fa-solid fa-phone"></i> Call Advisor
+        <a href="tel:+919428129291" class="btn-sticky-action sticky-call">
+            <i class="fa-solid fa-phone"></i> Call Support
         </a>
     </div>
 
-    <!-- Bootstrap 5 JS Bundle -->
+    <!-- Bootstrap 5 Bundle JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        // Form Validation and WhatsApp Redirection
+        // Form Processing & Safe WhatsApp Integration
         (() => {
             'use strict';
-            const form = document.getElementById('whatsappForm');
+            const form = document.getElementById('corporateLeadForm');
 
             form.addEventListener('submit', event => {
                 if (!form.checkValidity()) {
@@ -366,37 +519,42 @@
                 } else {
                     event.preventDefault();
 
-                    // Values gathering
+                    // Gathering all the inputs
                     const name = document.getElementById('fullName').value.trim();
+                    const age = document.getElementById('userAge').value;
                     const mobile = document.getElementById('mobileNumber').value.trim();
                     const email = document.getElementById('emailAddress').value.trim();
                     const city = document.getElementById('cityName').value.trim();
-                    const amount = document.getElementById('investmentAmount').value;
                     const service = document.getElementById('interestedIn').value;
-                    const message = document.getElementById('userMessage').value.trim() || 'No additional message';
+                    const amount = document.getElementById('investmentAmount').value;
+                    const time = document.querySelector('input[name="callTime"]:checked').value;
+                    const message = document.getElementById('userMessage').value.trim() || 'No specific messages written.';
 
-                    // Destination WhatsApp Number
+                    // Primary corporate phone number
                     const whatsappPhone = '919428129291'; 
 
-                    // Message string format with clean emojis
-                    let waText = `*New Lead - Desai Investments*\n`;
-                    waText += `------------------------------------\n`;
-                    waText += `👤 *Name:* ${name}\n`;
-                    waText += `📱 *Mobile:* ${mobile}\n`;
-                    waText += `✉️ *Email:* ${email}\n`;
-                    waText += `📍 *City:* ${city}\n`;
-                    waText += `💰 *Investment:* ${amount}\n`;
-                    waText += `💼 *Interested In:* ${service}\n`;
-                    waText += `💬 *Message:* ${message}\n`;
-                    waText += `------------------------------------\n`;
-                    waText += `_Submitted via Enquiry Lead Form_`;
+                    // Styling pre-filled template message for advisor
+                    let template = `*New Financial Consultation - Desai Investments*\n`;
+                    template += `===============================\n`;
+                    template += `👤 *Name:* ${name}\n`;
+                    template += `🎂 *Age:* ${age} Years\n`;
+                    template += `📱 *Mobile:* ${mobile}\n`;
+                    template += `✉️ *Email:* ${email}\n`;
+                    template += `📍 *City:* ${city}\n`;
+                    template += `-------------------------------\n`;
+                    template += `💼 *Service:* ${service}\n`;
+                    template += `💰 *Investment Range:* ${amount}\n`;
+                    template += `⏰ *Best Time to Call:* ${time}\n`;
+                    template += `💬 *Note:* ${message}\n`;
+                    template += `===============================\n`;
+                    template += `_Submitted via Desai Investments Online Form_`;
 
-                    // Message URL Encoding
-                    const encodedMessage = encodeURIComponent(waText);
-                    const whatsappURL = `https://api.whatsapp.com/send?phone=${whatsappPhone}&text=${encodedMessage}`;
+                    // Safe conversion
+                    const encodedText = encodeURIComponent(template);
+                    const finalWhatsAppUrl = `https://api.whatsapp.com/send?phone=${whatsappPhone}&text=${encodedText}`;
 
-                    // Redirecting to WhatsApp
-                    window.open(whatsappURL, '_blank');
+                    // Open direct WhatsApp terminal
+                    window.open(finalWhatsAppUrl, '_blank');
                 }
             }, false);
         })();
