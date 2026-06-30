@@ -18,91 +18,84 @@
 
     <style>
         :root {
-            --primary-brand: #8E1B4F; /* आपके बैनर का डीप मैरून कलर */
+            --primary-brand: #8E1B4F; /* बैनर का ओरिजिनल डीप मैरून कलर */
             --secondary-brand: #D63384; 
-            --accent-gold: #F3C010; /* बैनर का गोल्ड कलर */
-            --bg-light: #F9F6F8;
-            --text-dark: #1E293B;
-            --text-muted: #64748B;
+            --accent-gold: #F3C010; 
+            --bg-light: #F8F6F8;
+            --text-dark: #0F172A;
+            --text-muted: #475569;
         }
 
         body {
             font-family: 'Poppins', sans-serif;
             background-color: var(--bg-light);
-            background-image: radial-gradient(circle at 10% 20%, rgba(142, 27, 79, 0.02) 0%, rgba(255, 255, 255, 1) 90%);
+            background-image: radial-gradient(circle at 50% 50%, rgba(142, 27, 79, 0.04) 0%, rgba(255, 255, 255, 0) 100%);
             color: var(--text-dark);
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 30px 12px;
+            padding: 20px 10px;
         }
 
-        /* Highly Professional Main Container */
+        /* Responsive Wrapper Card */
         .premium-container {
             width: 100%;
-            max-width: 650px;
+            max-width: 680px;
             background: #ffffff;
-            border-radius: 24px;
-            box-shadow: 0 20px 50px rgba(142, 27, 79, 0.08);
-            border: 1px solid rgba(142, 27, 79, 0.08);
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(142, 27, 79, 0.06);
+            border: 1px solid rgba(142, 27, 79, 0.06);
             overflow: hidden;
         }
 
-        /* Banner Design */
+        /* Banner Container (Fixes image getting cut off) */
         .banner-box {
-            position: relative;
             width: 100%;
-            max-height: 250px;
-            overflow: hidden;
-            border-bottom: 4px solid var(--primary-brand);
+            height: auto; 
+            background-color: #ffffff;
         }
 
         .banner-box img {
             width: 100%;
             height: auto;
+            object-fit: contain; /* बिना कटे पूरी इमेज दिखेगी */
             display: block;
         }
 
-        /* Branding Header Card */
-        .branding-header {
-            background: linear-gradient(to right, #ffffff, #FCF8FA);
-            padding: 20px 25px;
-            border-bottom: 1px solid #F1E5EC;
+        /* Form Head Title block */
+        .form-heading-block {
             display: flex;
             align-items: center;
-            gap: 15px;
+            justify-content: center;
+            gap: 12px;
+            padding-top: 30px;
+            padding-bottom: 5px;
         }
 
-        .brand-logo {
-            height: 50px;
+        .header-logo {
+            height: 35px;
             width: auto;
             object-fit: contain;
         }
 
-        .brand-info h4 {
-            font-size: 1.25rem;
+        .form-heading-block h3 {
+            font-size: 1.4rem;
             font-weight: 700;
             color: var(--primary-brand);
-            margin-bottom: 2px;
+            margin: 0;
             letter-spacing: -0.3px;
         }
 
-        .brand-info span {
-            font-size: 0.78rem;
-            color: var(--text-muted);
-            font-weight: 500;
-            display: block;
-        }
-
-        /* Section Separator */
+        /* Form Sections */
         .form-section-title {
             font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             color: var(--primary-brand);
             font-weight: 700;
-            margin-bottom: 18px;
+            margin-bottom: 20px;
+            margin-top: 10px;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -115,15 +108,14 @@
             background-color: #E2E8F0;
         }
 
-        /* Premium Form Elements */
+        /* Premium Form Controls */
         .form-label {
-            font-size: 0.8rem;
+            font-size: 0.82rem;
             font-weight: 600;
-            color: #475569;
+            color: #334155;
             margin-bottom: 6px;
         }
 
-        /* Responsive Input Controls (55px height) */
         .input-group-text {
             background-color: #F8FAFC;
             border: 1.5px solid #CBD5E1;
@@ -150,6 +142,7 @@
         .form-control:focus, .form-select:focus {
             border-color: var(--primary-brand);
             box-shadow: 0 0 0 4px rgba(142, 27, 79, 0.08);
+            background-color: #ffffff;
         }
 
         textarea.form-control {
@@ -158,26 +151,26 @@
             padding-top: 12px;
         }
 
-        /* Customized Radio Badges for Calling Time */
-        .time-badge-container {
+        /* Segmented Buttons for Options */
+        .segmented-option-container {
             display: flex;
-            gap: 10px;
+            gap: 8px;
             flex-wrap: wrap;
         }
 
-        .time-badge {
+        .segmented-option {
             flex: 1;
-            min-width: 100px;
+            min-width: 90px;
         }
 
-        .time-badge input[type="radio"] {
+        .segmented-option input[type="radio"] {
             display: none;
         }
 
-        .time-badge label {
+        .segmented-option label {
             display: block;
             text-align: center;
-            padding: 12px;
+            padding: 12px 6px;
             border: 1.5px solid #CBD5E1;
             border-radius: 10px;
             cursor: pointer;
@@ -185,16 +178,17 @@
             font-weight: 500;
             transition: all 0.2s ease;
             background-color: #ffffff;
+            color: var(--text-dark);
         }
 
-        .time-badge input[type="radio"]:checked + label {
+        .segmented-option input[type="radio"]:checked + label {
             background-color: rgba(142, 27, 79, 0.06);
             border-color: var(--primary-brand);
             color: var(--primary-brand);
             font-weight: 600;
         }
 
-        /* Action Submit Button (Corporate WhatsApp) */
+        /* Action Buttons */
         .btn-corporate-submit {
             background: linear-gradient(135deg, var(--primary-brand) 0%, var(--secondary-brand) 100%);
             color: #ffffff;
@@ -208,19 +202,20 @@
             justify-content: center;
             gap: 10px;
             transition: all 0.3s ease;
-            box-shadow: 0 6px 20px rgba(142, 27, 79, 0.25);
+            box-shadow: 0 6px 20px rgba(142, 27, 79, 0.2);
             width: 100%;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            margin-top: 15px;
         }
 
         .btn-corporate-submit:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(142, 27, 79, 0.35);
+            box-shadow: 0 8px 25px rgba(142, 27, 79, 0.3);
             color: #ffffff;
         }
 
-        /* Trust Badges section matching your banner points */
+        /* Trust Badges matching banner footer */
         .trust-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -243,21 +238,21 @@
 
         .trust-badge-item i {
             color: var(--primary-brand);
-            font-size: 1rem;
+            font-size: 0.95rem;
         }
 
-        /* Muted Corporate Disclaimer */
+        /* Regulatory Disclaimer from banner footer */
         .regulatory-disclaimer {
-            font-size: 0.7rem;
-            color: #94A3B8;
+            font-size: 0.72rem;
+            color: #64748B;
             text-align: center;
-            line-height: 1.4;
+            line-height: 1.5;
             border-top: 1px solid #E2E8F0;
             padding-top: 15px;
             margin-top: 25px;
         }
 
-        /* Mobile Sticky CTA */
+        /* Mobile Sticky Footer */
         .sticky-footer {
             position: fixed;
             bottom: 0;
@@ -311,24 +306,22 @@
 
     <div class="premium-container">
         
-        <!-- Premium Corporate Banner (Loads "Banner.png" automatically) -->
+        <!-- Corrected Full-Width Banner (Uncropped) -->
         <div class="banner-box">
             <img src="Banner.png" alt="Desai Investments Banner" onerror="this.src='https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=800&q=80';">
         </div>
 
-        <!-- Corporate Branding Row (Loads "logo.png" automatically) -->
-        <div class="branding-header">
-            <img src="logo.png" class="brand-logo" alt="Desai Investments Logo" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=150&q=80';">
-            <div class="brand-info">
-                <h4>DESAI INVESTMENTS</h4>
-                <span>AMFI Registered Mutual Funds Distributor</span>
-            </div>
+        <!-- Form Heading Area with Small Logo Icon -->
+        <div class="form-heading-block">
+            <img src="logo.png" class="header-logo" alt="DI" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=150&q=80';">
+            <h3>Advisory Request Form</h3>
         </div>
+        <p class="text-center text-muted small px-3 mb-4">Provide details below to customize your high-performing portfolio.</p>
 
-        <div class="card-body p-4">
-            <form id="corporateLeadForm" class="needs-validation" novalidate>
+        <div class="card-body px-3 px-md-4 pb-4">
+            <form id="corporateForm" class="needs-validation" novalidate>
                 
-                <!-- SECTION 1: Personal Profile -->
+                <!-- SECTION 1: Personal Details -->
                 <div class="form-section-title">
                     <i class="fa-solid fa-user-tie"></i> Personal Profile
                 </div>
@@ -350,7 +343,7 @@
                         <div class="input-group">
                             <span class="input-group-text"><i class="fa-solid fa-cake-candles"></i></span>
                             <input type="number" class="form-control" id="userAge" min="18" max="100" placeholder="Years" required>
-                            <div class="invalid-feedback">Enter valid age (18+).</div>
+                            <div class="invalid-feedback">Enter age (18+).</div>
                         </div>
                     </div>
 
@@ -375,23 +368,38 @@
                     </div>
 
                     <!-- City -->
-                    <div class="col-12">
+                    <div class="col-md-7">
                         <label class="form-label" for="cityName">City</label>
                         <div class="input-group">
                             <span class="input-group-text"><i class="fa-solid fa-location-dot"></i></span>
-                            <input type="text" class="form-control" id="cityName" placeholder="Enter your current city" required>
+                            <input type="text" class="form-control" id="cityName" placeholder="Enter your city" required>
                             <div class="invalid-feedback">Please enter your city.</div>
+                        </div>
+                    </div>
+
+                    <!-- Existing Investor Status? (New Add-on) -->
+                    <div class="col-md-5">
+                        <label class="form-label">Are you our existing client?</label>
+                        <div class="segmented-option-container">
+                            <div class="segmented-option">
+                                <input type="radio" name="existingClient" id="clientNo" value="No" checked>
+                                <label for="clientNo">No</label>
+                            </div>
+                            <div class="segmented-option">
+                                <input type="radio" name="existingClient" id="clientYes" value="Yes">
+                                <label for="clientYes">Yes</label>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- SECTION 2: Investment Preferences -->
+                <!-- SECTION 2: Financial Planning & Preference -->
                 <div class="form-section-title">
-                    <i class="fa-solid fa-chart-line"></i> Investment Goals
+                    <i class="fa-solid fa-chart-line"></i> Financial Planning
                 </div>
 
                 <div class="row g-3 mb-4">
-                    <!-- Interested In -->
+                    <!-- Service Category -->
                     <div class="col-md-6">
                         <label class="form-label" for="interestedIn">Select Service Category</label>
                         <div class="input-group">
@@ -413,7 +421,7 @@
                         </div>
                     </div>
 
-                    <!-- Investment Amount -->
+                    <!-- Investment Range -->
                     <div class="col-md-6">
                         <label class="form-label" for="investmentAmount">Target Investment Range</label>
                         <div class="input-group">
@@ -431,38 +439,73 @@
                         </div>
                     </div>
 
-                    <!-- Preferred Calling Time (Highly Useful Add-on) -->
+                    <!-- Mode Preferred (New Add-on) -->
+                    <div class="col-md-6">
+                        <label class="form-label">Preferred Investment Mode</label>
+                        <div class="segmented-option-container">
+                            <div class="segmented-option">
+                                <input type="radio" name="investMode" id="modeSIP" value="Monthly SIP" checked>
+                                <label for="modeSIP">Monthly SIP</label>
+                            </div>
+                            <div class="segmented-option">
+                                <input type="radio" name="investMode" id="modeLump" value="One-Time Lumpsum">
+                                <label for="modeLump">Lumpsum</label>
+                            </div>
+                            <div class="segmented-option">
+                                <input type="radio" name="investMode" id="modeBoth" value="Both SIP & Lumpsum">
+                                <label for="modeBoth">Both</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Investment Horizon (New Add-on) -->
+                    <div class="col-md-6">
+                        <label class="form-label" for="investHorizon">Preferred Investment Horizon</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fa-regular fa-calendar-days"></i></span>
+                            <select class="form-select" id="investHorizon" required>
+                                <option value="" disabled selected>Time duration</option>
+                                <option value="Short Term (< 1 Year)">Short Term (&lt; 1 Year)</option>
+                                <option value="Medium Term (1 - 3 Years)">Medium Term (1 - 3 Years)</option>
+                                <option value="Long Term (3 - 5 Years)">Long Term (3 - 5 Years)</option>
+                                <option value="Wealth Creation (5+ Years)">Wealth Creation (5+ Years)</option>
+                            </select>
+                            <div class="invalid-feedback">Please select investment duration.</div>
+                        </div>
+                    </div>
+
+                    <!-- Best Callback Time -->
                     <div class="col-12">
                         <label class="form-label d-block">Preferred Time to Call back</label>
-                        <div class="time-badge-container">
-                            <div class="time-badge">
+                        <div class="segmented-option-container">
+                            <div class="segmented-option">
                                 <input type="radio" name="callTime" id="timeAny" value="Anytime" checked>
                                 <label for="timeAny"><i class="fa-regular fa-clock me-1"></i> Anytime</label>
                             </div>
-                            <div class="time-badge">
+                            <div class="segmented-option">
                                 <input type="radio" name="callTime" id="timeMorning" value="Morning (10 AM - 1 PM)">
                                 <label for="timeMorning">Morning</label>
                             </div>
-                            <div class="time-badge">
+                            <div class="segmented-option">
                                 <input type="radio" name="callTime" id="timeEvening" value="Evening (4 PM - 7 PM)">
                                 <label for="timeEvening">Evening</label>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Additional Message -->
+                    <!-- Additional message -->
                     <div class="col-12">
                         <label class="form-label" for="userMessage">Additional Requirements (Optional)</label>
                         <textarea class="form-control" id="userMessage" rows="2" placeholder="Tell us about your specific goals..."></textarea>
                     </div>
                 </div>
 
-                <!-- Submit Trigger -->
+                <!-- Submit Button -->
                 <button type="submit" class="btn btn-corporate-submit">
-                    <i class="fa-brands fa-whatsapp fs-5"></i> Submit & Consultation via WhatsApp
+                    <i class="fa-brands fa-whatsapp fs-5"></i> Submit on WhatsApp
                 </button>
 
-                <!-- Professional Trust Badges grid matching banner -->
+                <!-- Professional Trust Badge block -->
                 <div class="trust-grid">
                     <div class="trust-badge-item">
                         <i class="fa-solid fa-circle-check"></i>
@@ -482,7 +525,7 @@
                     </div>
                 </div>
 
-                <!-- Regulatory Disclaimer directly copied from banner -->
+                <!-- Regulatory text matching banner footer -->
                 <div class="regulatory-disclaimer">
                     Mutual Fund Investments are subject to market risks. Read all scheme-related documents carefully before investing.
                 </div>
@@ -491,7 +534,7 @@
         </div>
     </div>
 
-    <!-- Mobile Dynamic Sticky Action Panel -->
+    <!-- Mobile Sticky Bar -->
     <div class="sticky-footer">
         <a href="https://wa.me/919428129291?text=Hello%20Desai%20Investments%2C%20I%20am%20interested%20in%20your%20financial%20services." 
            class="btn-sticky-action sticky-whatsapp" target="_blank">
@@ -509,7 +552,7 @@
         // Form Processing & Safe WhatsApp Integration
         (() => {
             'use strict';
-            const form = document.getElementById('corporateLeadForm');
+            const form = document.getElementById('corporateForm');
 
             form.addEventListener('submit', event => {
                 if (!form.checkValidity()) {
@@ -519,18 +562,22 @@
                 } else {
                     event.preventDefault();
 
-                    // Gathering all the inputs
+                    // Gathering inputs
                     const name = document.getElementById('fullName').value.trim();
                     const age = document.getElementById('userAge').value;
                     const mobile = document.getElementById('mobileNumber').value.trim();
                     const email = document.getElementById('emailAddress').value.trim();
                     const city = document.getElementById('cityName').value.trim();
+                    const existing = document.querySelector('input[name="existingClient"]:checked').value;
+                    
                     const service = document.getElementById('interestedIn').value;
                     const amount = document.getElementById('investmentAmount').value;
+                    const mode = document.querySelector('input[name="investMode"]:checked').value;
+                    const horizon = document.getElementById('investHorizon').value;
                     const time = document.querySelector('input[name="callTime"]:checked').value;
                     const message = document.getElementById('userMessage').value.trim() || 'No specific messages written.';
 
-                    // Primary corporate phone number
+                    // Primary WhatsApp phone
                     const whatsappPhone = '919428129291'; 
 
                     // Styling pre-filled template message for advisor
@@ -541,9 +588,12 @@
                     template += `📱 *Mobile:* ${mobile}\n`;
                     template += `✉️ *Email:* ${email}\n`;
                     template += `📍 *City:* ${city}\n`;
+                    template += `🔑 *Existing Client:* ${existing}\n`;
                     template += `-------------------------------\n`;
                     template += `💼 *Service:* ${service}\n`;
                     template += `💰 *Investment Range:* ${amount}\n`;
+                    template += `📈 *Mode Preference:* ${mode}\n`;
+                    template += `⏳ *Horizon duration:* ${horizon}\n`;
                     template += `⏰ *Best Time to Call:* ${time}\n`;
                     template += `💬 *Note:* ${message}\n`;
                     template += `===============================\n`;
